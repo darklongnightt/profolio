@@ -1,0 +1,35 @@
+body {
+  font-family: 'Roboto Slab', serif;
+}
+
+.brand-text {
+  font-family: 'Roboto Mono', monospace;
+}
+
+.form-btn {
+  width: 90%;
+  border-radius: 25px;
+  margin-top: 15px;
+}
+
+.auth-form {
+  border-style: solid;
+  border-radius: 15px;
+  border-color: grey;
+  border-width: 2px;
+  padding: 25px;
+  margin-top: 50px;
+}
+
+input:focus {
+  border-bottom: 1px solid #1976d2 !important;
+  box-shadow: 0 1px 0 0 #1976d2 !important;
+}
+
+i.active {
+  color: #1976d2 !important;
+}
+
+label.active {
+  color: #1976d2 !important;
+}
