@@ -1,14 +1,21 @@
 body {
-  font-family: 'Roboto Slab', serif;
+  font-family: "Roboto Slab", serif;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
 }
 
 .brand-text {
-  font-family: 'Roboto Mono', monospace;
+  font-family: "Roboto Mono", monospace;
 }
 
 .form-btn {
   width: 90%;
-  border-radius: 25px;
+  border-radius: 25px !important;
   margin-top: 15px;
 }
 
@@ -32,4 +39,8 @@ i.active {
 
 label.active {
   color: #1976d2 !important;
+}
+
+.preloader-margin {
+  margin-top: 250px;
 }
