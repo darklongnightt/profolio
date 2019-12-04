@@ -7,7 +7,7 @@ const ProjectDetails = props => {
     console.log(project);
     return (
       <div className="container section">
-        <div className="card z-depth-0">
+        <div className="card z-depth-0 project-details">
           <div className="card-content">
             <span className="card-title">{project.title + " - " + id}</span>
             <p>{project.content}</p>

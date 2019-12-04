@@ -1,4 +1,5 @@
 import React from "react";
+import moment from "moment";
 import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
 import { compose } from "redux";
@@ -12,15 +13,15 @@ const ProjectDetails = props => {
   if (project) {
     return (
       <div className="container section">
-        <div className="card z-depth-0">
+        <div className="card z-depth-0 project-details">
           <div className="card-content">
             <span className="card-title">{project.title + " - " + id}</span>
             <p>{project.content}</p>
           </div>
 
-          <div className="card-action grey lighten-4 grey-text">
+          <div className="card-action grey lighten-4 grey-text ">
             <div>Posted by {project.firstName + " " + project.lastName}</div>
-            <div>Date</div>
+            <div>{moment(project.createdAt.toDate()).calendar()}</div>
           </div>
         </div>
       </div>
@@ -48,8 +49,11 @@ const ProjectDetails = props => {
 
 const mapStateToProps = (state, ownProps) => {
   const id = ownProps.match.params.id;
+  const projects = state.firestore.data.projects;
+  const project = projects && projects[id];
+
   return {
-    project: state.firestore.data.projects && state.firestore.data.projects[id],
+    project: project,
     auth: state.firebase.auth
   };
 };
@@ -57,6 +61,6 @@ const mapStateToProps = (state, ownProps) => {
 export default compose(
   connect(mapStateToProps),
   firestoreConnect(props => {
-    return [{ collection: "projects", doc: props.match.params.id }];
+    return [{ collection: "projects" }];
   })
 )(ProjectDetails);

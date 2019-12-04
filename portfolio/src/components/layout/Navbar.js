@@ -19,7 +19,7 @@ const Navbar = props => {
           to="/"
           className="brand-logo brand-text blue-text text-lighten-3 bold"
         >
-          Profolio
+          .profolio
         </Link>
         {links}
       </div>

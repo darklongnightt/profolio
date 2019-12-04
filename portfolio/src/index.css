@@ -49,3 +49,24 @@ label.active {
   margin-right: 5px;
   height: 100%;
 }
+
+.notification-board {
+  border-style: solid;
+  border-radius: 15px !important;
+  border-width: 2px;
+  border-color: grey;
+}
+
+.project-summary {
+  border-style: solid;
+  border-radius: 15px !important;
+  border-width: 2px;
+  color: grey;
+}
+
+.project-details {
+  border-style: inset;
+  border-radius: 15px !important;
+  border-width: 5px;
+  color: black;
+}
