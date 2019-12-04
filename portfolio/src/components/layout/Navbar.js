@@ -5,11 +5,20 @@ import SignedInLinks from "./SignedInLinks";
 import SignedOutLinks from "./SignedOutLinks";
 
 const Navbar = props => {
-  const links = props.auth.uid ? <SignedInLinks /> : <SignedOutLinks />;
+  const { auth, profile } = props;
+  const links = auth.uid ? (
+    <SignedInLinks profile={profile} />
+  ) : (
+    <SignedOutLinks />
+  );
+
   return (
-    <nav className="nav-wrapper grey darken-3">
+    <nav className="nav-wrapper grey darken-3 nav-property">
       <div className="container">
-        <Link to="/" className="brand-logo brand-text blue-text text-lighten-3">
+        <Link
+          to="/"
+          className="brand-logo brand-text blue-text text-lighten-3 bold"
+        >
           Profolio
         </Link>
         {links}
@@ -19,8 +28,10 @@ const Navbar = props => {
 };
 
 const mapStateToProps = state => {
+  console.log(state);
   return {
-    auth: state.firebase.auth
+    auth: state.firebase.auth,
+    profile: state.firebase.profile
   };
 };
 

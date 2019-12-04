@@ -44,3 +44,8 @@ label.active {
 .preloader-margin {
   margin-top: 250px;
 }
+
+.nav-icon {
+  margin-right: 5px;
+  height: 100%;
+}

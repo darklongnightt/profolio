@@ -10,7 +10,6 @@ const ProjectDetails = props => {
   if (!auth.uid) return <Redirect to="/signin" />;
 
   if (project) {
-
     return (
       <div className="container section">
         <div className="card z-depth-0">
@@ -29,7 +28,19 @@ const ProjectDetails = props => {
   } else {
     return (
       <div className="container center">
-        <p>Loading Project...</p>
+        <div className="preloader-wrapper big active preloader-margin">
+          <div className="spinner-layer spinner-blue-only">
+            <div className="circle-clipper left">
+              <div className="circle"></div>
+            </div>
+            <div className="gap-patch">
+              <div className="circle"></div>
+            </div>
+            <div className="circle-clipper right">
+              <div className="circle"></div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

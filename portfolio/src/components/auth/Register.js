@@ -2,13 +2,15 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
+import { emailRegister } from "../../store/actions/authActions";
 
 class Register extends Component {
   state = {
     firstName: "",
     lastName: "",
     email: "",
-    password: ""
+    password: "",
+    error: ""
   };
 
   handleChange = e => {
@@ -19,12 +21,22 @@ class Register extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    console.log(this.state);
+
+    if (this.state.firstName === "" || this.state.lastName === "") {
+      console.log("HERE");
+      this.setState({
+        ...this.state,
+        error: "First name and last name are required."
+      });
+    } else {
+      this.props.emailRegister(this.state);
+    }
   };
 
   render() {
-    const { auth } = this.props;
+    const { auth, authError } = this.props;
     if (auth.uid) return <Redirect to="/" />;
+    console.log(this.state.error);
 
     return (
       <div className="container">
@@ -85,6 +97,10 @@ class Register extends Component {
                 />
               </div>
 
+              <div className="red-text">
+                {authError ? authError : this.state.error}
+              </div>
+
               <div className="input-field">
                 <button className="btn z-depth-0 blue darken-2 form-btn">
                   Register
@@ -104,8 +120,15 @@ class Register extends Component {
 
 const mapStateToProps = state => {
   return {
-    auth: state.firebase.auth
+    auth: state.firebase.auth,
+    authError: state.auth.authError
   };
 };
 
-export default connect(mapStateToProps)(Register);
+const mapDispatchToProps = dispatch => {
+  return {
+    emailRegister: newUser => dispatch(emailRegister(newUser))
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Register);
