@@ -33,7 +33,6 @@ const rrfProps = {
   createFirestoreInstance
 };
 
-// Render the app subscribed to the store
 ReactDOM.render(
   <Provider store={store}>
     <ReactReduxFirebaseProvider {...rrfProps}>

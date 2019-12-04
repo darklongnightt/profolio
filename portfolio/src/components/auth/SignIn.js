@@ -30,6 +30,7 @@ class SignIn extends Component {
             <form onSubmit={this.handleSubmit} className="white auth-form">
               <h5>Sign In</h5>
               <div className="grey-text">to continue to Portfolio Manager</div>
+              <br />
               <div className="input-field">
                 <i className="material-icons prefix">email</i>
                 <label htmlFor="email">Email</label>

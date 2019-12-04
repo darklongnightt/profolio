@@ -5,15 +5,14 @@ import SignedInLinks from "./SignedInLinks";
 import SignedOutLinks from "./SignedOutLinks";
 
 const Navbar = props => {
-  //console.log(props);
+  const links = props.auth.uid ? <SignedInLinks /> : <SignedOutLinks />;
   return (
     <nav className="nav-wrapper grey darken-3">
       <div className="container">
         <Link to="/" className="brand-logo brand-text blue-text text-lighten-3">
           Profolio
         </Link>
-        <SignedInLinks />
-        <SignedOutLinks />
+        {links}
       </div>
     </nav>
   );

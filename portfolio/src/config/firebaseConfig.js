@@ -9,7 +9,7 @@ var config = {
   projectId: "profolio-craft",
   storageBucket: "profolio-craft.appspot.com",
   messagingSenderId: "80916112422",
-  appId: "1:80916112422:web:e835420485593559fb32e7",
+  appId: "1:80916112422:web:e83542048559s3559fb32e7",
   measurementId: "G-BT4PSV098M"
 };
 
