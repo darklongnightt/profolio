@@ -102,7 +102,7 @@ class Register extends Component {
               </div>
 
               <div className="input-field">
-                <button className="btn z-depth-0 blue darken-2 form-btn">
+                <button className="btn z-depth-0 blue darken-2 form-btn waves-effect waves-light">
                   Register
                 </button>
               </div>

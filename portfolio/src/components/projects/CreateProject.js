@@ -6,7 +6,8 @@ import { Redirect } from "react-router-dom";
 class CreateProject extends Component {
   state = {
     title: "",
-    content: ""
+    content: "",
+    error: ""
   };
 
   handleChange = e => {
@@ -17,8 +18,16 @@ class CreateProject extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.props.createProject(this.state);
-    this.props.history.push('/');
+
+    if (this.state.title === "" || this.state.content === "") {
+      this.setState({
+        ...this.state,
+        error: "Project title and content are required."
+      });
+    } else {
+      this.props.createProject(this.state);
+      this.props.history.push("/");
+    }
   };
 
   render() {
@@ -48,8 +57,10 @@ class CreateProject extends Component {
                 ></textarea>
               </div>
 
+              <div className="red-text">{this.state.error}</div>
+
               <div className="input-field">
-                <button className="btn z-depth-0 blue darken-2 form-btn">
+                <button className="btn z-depth-0 blue darken-2 form-btn waves-effect waves-light">
                   <i className="material-icons">send</i>
                 </button>
               </div>

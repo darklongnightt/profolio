@@ -52,7 +52,7 @@ class SignIn extends Component {
               <div className="red-text">{authError}</div>
 
               <div className="input-field">
-                <button className="btn z-depth-0 blue darken-2 form-btn">
+                <button className="btn z-depth-0 blue darken-2 form-btn waves-effect waves-light">
                   Sign In
                 </button>
               </div>
