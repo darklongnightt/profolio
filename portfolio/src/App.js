@@ -1,4 +1,5 @@
 import React from "react";
+import "materialize-css/dist/css/materialize.min.css";
 import { connect } from "react-redux";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Navbar from "./components/layout/Navbar";
@@ -8,6 +9,7 @@ import ProjectDetails from "./components/projects/ProjectDetails";
 import SignIn from "./components/auth/SignIn";
 import Register from "./components/auth/Register";
 import CreateProject from "./components/projects/CreateProject";
+import ManageProjects from "./components/projects/ManageProjects";
 
 const App = props => {
   const auth = props.auth;
@@ -22,6 +24,7 @@ const App = props => {
             <Route path="/signin" component={SignIn} />
             <Route path="/register" component={Register} />
             <Route path="/create_project" component={CreateProject} />
+            <Route path="/manage_projects" component={ManageProjects} />
           </Switch>
           <Footer />
         </div>

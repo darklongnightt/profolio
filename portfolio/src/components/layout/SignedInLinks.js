@@ -17,6 +17,13 @@ const SignedInLinks = props => {
         </li>
 
         <li>
+          <NavLink to="/manage_projects">
+            <i className="fa fa-product-hunt nav-icon" aria-hidden="true"></i>
+            Projects
+          </NavLink>
+        </li>
+
+        <li>
           <a href="# " onClick={props.signOut}>
             <i className="fa fa-sign-out nav-icon" aria-hidden="true"></i>
             Sign Out

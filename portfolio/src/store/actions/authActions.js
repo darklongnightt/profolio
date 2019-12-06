@@ -1,7 +1,10 @@
+const noError = ({ error, ...rest }) => rest
+
 export const emailRegister = newUser => {
   return (dispatch, getState, { getFirestore, getFirebase }) => {
     const firebase = getFirebase();
     const firestore = getFirestore();
+    newUser = noError(newUser);
 
     // Async call to firebase create new user
     firebase

@@ -50,6 +50,10 @@ label.active {
   height: 100%;
 }
 
+.action-icon {
+  font-size: x-large;
+}
+
 .notification-board {
   border-style: solid;
   border-radius: 15px !important;

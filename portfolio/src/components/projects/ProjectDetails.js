@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
 import { compose } from "redux";
 import { Redirect } from "react-router-dom";
+import { deleteProject } from "../../store/actions/projectActions";
 
 const ProjectDetails = props => {
   const id = props.match.params.id;
@@ -20,6 +21,13 @@ const ProjectDetails = props => {
           </div>
 
           <div className="card-action grey lighten-4 grey-text ">
+            <a
+              href="# "
+              className="right black-text action-icon"
+              onClick={() => handleDelete(props)}
+            >
+              <i class="fa fa-trash" aria-hidden="true"></i>
+            </a>
             <div>Posted by {project.firstName + " " + project.lastName}</div>
             <div>{moment(project.createdAt.toDate()).calendar()}</div>
           </div>
@@ -47,6 +55,12 @@ const ProjectDetails = props => {
   }
 };
 
+const handleDelete = props => {
+  const projectId = props.match.params.id;
+  props.deleteProject(projectId);
+  props.history.push("/");
+};
+
 const mapStateToProps = (state, ownProps) => {
   const id = ownProps.match.params.id;
   const projects = state.firestore.data.projects;
@@ -58,9 +72,23 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
+const mapDispatchToProps = dispatch => {
+  return {
+    deleteProject: projectId => dispatch(deleteProject(projectId))
+  };
+};
+
 export default compose(
-  connect(mapStateToProps),
+  connect(mapStateToProps, mapDispatchToProps),
   firestoreConnect(props => {
-    return [{ collection: "projects" }];
+    return [
+      {
+        collection: "users",
+        doc: props.auth.uid,
+        subcollections: [{ collection: "projects" }],
+        orderBy: ["createdAt", "desc"],
+        storeAs: "projects"
+      }
+    ];
   })
 )(ProjectDetails);

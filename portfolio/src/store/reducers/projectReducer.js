@@ -9,10 +9,16 @@ const initState = {
 const projectReducer = (state = initState, action) => {
   switch (action.type) {
     case "CREATE_PROJECT":
-      console.log("Reducer - Created Project", action.project);
+      console.log("CREATE_PROJECT", action.project);
       break;
     case "CREATE_PROJECT_ERROR":
-      console.log("Reducer - Create Project Error", action.err);
+      console.log("CREATE_PROJECT_ERROR", action.err);
+      break;
+    case "DELETE_PROJECT":
+      console.log("DELETE_PROJECT", action.project);
+      break;
+    case "DELETE_PROJECT_ERROR":
+      console.log("DELETE_PROJECT_ERROR", action.err);
       break;
     default:
   }
