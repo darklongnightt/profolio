@@ -52,6 +52,7 @@ label.active {
 
 .action-icon {
   font-size: x-large;
+  margin: 10px;
 }
 
 .notification-board {
@@ -73,4 +74,16 @@ label.active {
   border-radius: 15px !important;
   border-width: 5px;
   color: black;
+}
+
+.collapsible-header {
+  font-size: larger;
+  display: block !important;
+}
+
+.modal-container {
+  border-style: solid;
+  border-radius: 15px !important;
+  border-color: grey;
+  border-width: 2px;
 }

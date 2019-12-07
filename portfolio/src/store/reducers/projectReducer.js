@@ -20,6 +20,12 @@ const projectReducer = (state = initState, action) => {
     case "DELETE_PROJECT_ERROR":
       console.log("DELETE_PROJECT_ERROR", action.err);
       break;
+    case "EDIT_PROJECT":
+      console.log("EDIT_PROJECT", action.project);
+      break;
+    case "EDIT_PROJECT_ERROR":
+      console.log("EDIT_PROJECT_ERROR", action.err);
+      break;
     default:
   }
 

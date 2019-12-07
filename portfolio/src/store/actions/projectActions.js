@@ -1,4 +1,4 @@
-const noError = ({ error, ...rest }) => rest
+const cleanData = ({ error, mode, ...rest }) => rest;
 
 export const createProject = project => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
@@ -6,7 +6,7 @@ export const createProject = project => {
     const firestore = getFirestore();
     const profile = getState().firebase.profile;
     const userId = getState().firebase.auth.uid;
-    project = noError(project);
+    project = cleanData(project);
 
     // Make async db call then dispatch state
     firestore
@@ -29,7 +29,6 @@ export const createProject = project => {
   };
 };
 
-//let deleteDoc = db.collection('cities').doc('DC').delete();
 export const deleteProject = projectId => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     // Get states from the store
@@ -48,6 +47,38 @@ export const deleteProject = projectId => {
       })
       .catch(err => {
         dispatch({ type: "DELETE_PROJECT_ERROR", err });
+      });
+  };
+};
+
+export const editProject = (project) => {
+  return (dispatch, getState, { getFirebase, getFirestore }) => {
+    // Get states from the store
+    const firestore = getFirestore();
+    const profile = getState().firebase.profile;
+    const userId = getState().firebase.auth.uid;
+    console.log("Before", project);
+    project = cleanData(project);
+    console.log("After", project);
+
+    // Make async db call then dispatch state
+    firestore
+      .collection("users")
+      .doc(userId)
+      .collection("projects")
+      .doc(project.id)
+      .set({
+        ...project,
+        firstName: profile.firstName,
+        lastName: profile.lastName,
+        userId: userId,
+        modifiedAt: new Date()
+      })
+      .then(() => {
+        dispatch({ type: "EDIT_PROJECT", project });
+      })
+      .catch(err => {
+        dispatch({ type: "EDIT_PROJECT_ERROR", err });
       });
   };
 };
