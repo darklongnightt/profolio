@@ -1,35 +1,35 @@
 const cleanData = ({ error, mode, ...rest }) => rest;
 
-export const createProject = project => {
+export const createEmployment = employment => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     // Get states from the store
     const firestore = getFirestore();
     const profile = getState().firebase.profile;
     const userId = getState().firebase.auth.uid;
-    project = cleanData(project);
+    employment = cleanData(employment);
 
     // Make async db call then dispatch state
     firestore
       .collection("users")
       .doc(userId)
-      .collection("projects")
+      .collection("employments")
       .add({
-        ...project,
+        ...employment,
         firstName: profile.firstName,
         lastName: profile.lastName,
         userId: userId,
         createdAt: new Date()
       })
       .then(() => {
-        dispatch({ type: "CREATE_PROJECT", project });
+        dispatch({ type: "CREATE_EMPLOYMENT", employment });
       })
       .catch(err => {
-        dispatch({ type: "CREATE_PROJECT_ERROR", err });
+        dispatch({ type: "CREATE_EMPLOYMENT_ERROR", err });
       });
   };
 };
 
-export const deleteProject = projectId => {
+export const deleteEmployment = employmentId => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     // Get states from the store
     const firestore = getFirestore();
@@ -39,44 +39,44 @@ export const deleteProject = projectId => {
     firestore
       .collection("users")
       .doc(userId)
-      .collection("projects")
-      .doc(projectId)
+      .collection("employments")
+      .doc(employmentId)
       .delete()
       .then(() => {
-        dispatch({ type: "DELETE_PROJECT", projectId });
+        dispatch({ type: "DELETE_EMPLOYMENT", employmentId });
       })
       .catch(err => {
-        dispatch({ type: "DELETE_PROJECT_ERROR", err });
+        dispatch({ type: "DELETE_EMPLOYMENT_ERROR", err });
       });
   };
 };
 
-export const editProject = (project) => {
+export const editEmployment = (employment) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     // Get states from the store
     const firestore = getFirestore();
     const profile = getState().firebase.profile;
     const userId = getState().firebase.auth.uid;
-    project = cleanData(project);
+    employment = cleanData(employment);
 
     // Make async db call then dispatch state
     firestore
       .collection("users")
       .doc(userId)
-      .collection("projects")
-      .doc(project.id)
+      .collection("employments")
+      .doc(employment.id)
       .set({
-        ...project,
+        ...employment,
         firstName: profile.firstName,
         lastName: profile.lastName,
         userId: userId,
         modifiedAt: new Date()
       })
       .then(() => {
-        dispatch({ type: "EDIT_PROJECT", project });
+        dispatch({ type: "EDIT_EMPLOYMENT", employment });
       })
       .catch(err => {
-        dispatch({ type: "EDIT_PROJECT_ERROR", err });
+        dispatch({ type: "EDIT_EMPLOYMENT_ERROR", err });
       });
   };
 };

@@ -20,8 +20,17 @@ const ViewMode = props => {
         <i className="material-icons">edit</i>
       </a>
 
-      {project.content}
-      <div className="grey-text">
+      <div>
+        <i class="fa fa-product-hunt action-icon" aria-hidden="true"></i>
+        <span className="large-text">{project.title}</span>
+      </div>
+
+      <div>
+        <i class="fa fa-list-ul action-icon" aria-hidden="true"></i>
+        {project.content}
+      </div>
+
+      <div className="grey-text brand-text">
         <div>
           {project.modifiedAt &&
             "Modified " + moment(project.modifiedAt.toDate()).calendar()}

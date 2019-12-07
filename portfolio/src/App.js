@@ -10,6 +10,7 @@ import SignIn from "./components/auth/SignIn";
 import Register from "./components/auth/Register";
 import CreateProject from "./components/projects/CreateProject";
 import ManageProjects from "./components/projects/ManageProjects";
+import ManageEmployments from "./components/employments/ManageEmployments";
 
 const App = props => {
   const auth = props.auth;
@@ -25,6 +26,8 @@ const App = props => {
             <Route path="/register" component={Register} />
             <Route path="/create_project" component={CreateProject} />
             <Route path="/manage_projects" component={ManageProjects} />
+            <Route path="/manage_employments" component={ManageEmployments} />
+            <Route path="/manage_education" />
           </Switch>
           <Footer />
         </div>

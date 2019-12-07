@@ -13,6 +13,10 @@ main {
   font-family: "Roboto Mono", monospace;
 }
 
+.large-text {
+  font-size: 22px;
+}
+
 .form-btn {
   width: 90%;
   border-radius: 25px !important;
@@ -86,4 +90,8 @@ label.active {
   border-radius: 15px !important;
   border-color: grey;
   border-width: 2px;
+}
+
+.checkbox-left {
+  display: inline-block !important;
 }

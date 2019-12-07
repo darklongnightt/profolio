@@ -33,7 +33,6 @@ class CreateProject extends Component {
   };
 
   render() {
-
     return (
       <div className="section center">
         <form onSubmit={this.handleSubmit} className="white">
@@ -42,7 +41,12 @@ class CreateProject extends Component {
           <div className="input-field">
             <i className="material-icons prefix">title</i>
             <label htmlFor="title">Project Title</label>
-            <input type="text" id="title" onChange={this.handleChange} />
+            <input
+              type="text"
+              id="title"
+              onChange={this.handleChange}
+              value={this.state.title}
+            />
           </div>
 
           <div className="input-field">
@@ -52,6 +56,7 @@ class CreateProject extends Component {
               id="content"
               className="materialize-textarea"
               onChange={this.handleChange}
+              value={this.state.content}
             ></textarea>
           </div>
 

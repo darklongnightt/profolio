@@ -10,9 +10,16 @@ const SignedInLinks = props => {
     <div>
       <ul className="right">
         <li>
-          <NavLink to="/create_project">
-            <i className="fa fa-product-hunt nav-icon" aria-hidden="true"></i>
-            New Project
+          <NavLink to="/manage_employments">
+            <i className="fa fa-briefcase nav-icon" aria-hidden="true"></i>
+            Employments
+          </NavLink>
+        </li>
+
+        <li>
+          <NavLink to="/manage_educations">
+            <i className="fa fa-graduation-cap nav-icon" aria-hidden="true"></i>
+            Educations
           </NavLink>
         </li>
 

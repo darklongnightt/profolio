@@ -5,7 +5,6 @@ class EditMode extends Component {
     title: "",
     content: "",
     error: "",
-    mode: "VIEW",
     id: ""
   };
 
@@ -60,11 +59,11 @@ class EditMode extends Component {
             className="right blue-text action-icon"
             onClick={() => onSetMode("VIEW")}
           >
-            <i className="material-icons">edit</i>
+            <i className="material-icons">chrome_reader_mode</i>
           </a>
 
+          <h5>Edit Project</h5>
           <br />
-
           <form onSubmit={this.handleSubmit} className="white">
             <div className="input-field">
               <i className="material-icons prefix">title</i>
