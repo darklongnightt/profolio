@@ -1,0 +1,44 @@
+[debug] [2019-12-08T02:07:32.212Z] ----------------------------------------------------------------------
+[debug] [2019-12-08T02:07:32.215Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Xavier\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve -p 4000
+[debug] [2019-12-08T02:07:32.215Z] CLI Version:   7.9.0
+[debug] [2019-12-08T02:07:32.215Z] Platform:      win32
+[debug] [2019-12-08T02:07:32.215Z] Node Version:  v10.16.0
+[debug] [2019-12-08T02:07:32.217Z] Time:          Sun Dec 08 2019 10:07:32 GMT+0800 (Singapore Standard Time)
+[debug] [2019-12-08T02:07:32.217Z] ----------------------------------------------------------------------
+[debug] [2019-12-08T02:07:32.217Z] 
+[debug] [2019-12-08T02:07:32.303Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-12-08T02:07:32.304Z] > authorizing via signed-in user
+[debug] [2019-12-08T02:07:32.305Z] [iam] checking project profolio-craft for permissions ["firebase.projects.get"]
+[debug] [2019-12-08T02:07:32.307Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2019-12-08T02:07:32.307Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2019-12-08T02:07:32.407Z] <<< HTTP RESPONSE 200
+[debug] [2019-12-08T02:07:32.515Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/profolio-craft:testIamPermissions  
+
+[debug] [2019-12-08T02:07:33.703Z] <<< HTTP RESPONSE 200
+[debug] [2019-12-08T02:07:33.705Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/profolio-craft  
+ 
+[debug] [2019-12-08T02:07:34.072Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\Xavier\Downloads\Website Projects\Portfolio\portfolio'...
+[info] 
+[debug] [2019-12-08T02:07:34.078Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/profolio-craft/webApps/-/config  
+ 
+[debug] [2019-12-08T02:07:35.542Z] <<< HTTP RESPONSE 200
+[warn] !  Your requested "node" version "8" doesn't match your global version "10"
+[info] i  hosting: Serving hosting files from: dist
+[info] +  hosting: Local server: http://localhost:4000
+[info] +  functions: Emulator started at http://localhost:4001
+[info] i  functions: Watching "C:\Users\Xavier\Downloads\Website Projects\Portfolio\portfolio\functions" for Cloud Functions...
+[debug] [2019-12-08T02:07:36.677Z] [worker-~diagnostic~-a708be1d-06f4-43f5-9b9b-1ec461284b57]: Assigning socketPath: \\?\pipe\C:\Users\Xavier\Downloads\Website Projects\Portfolio\portfolio\functions\3016
+[debug] [2019-12-08T02:07:36.677Z] [worker-~diagnostic~-a708be1d-06f4-43f5-9b9b-1ec461284b57]: BUSY
+[debug] [2019-12-08T02:07:37.595Z] [runtime-status] [3016] Functions runtime initialized. {"cwd":"C:\\Users\\Xavier\\Downloads\\Website Projects\\Portfolio\\portfolio\\functions","node_version":"10.16.0"}
+[debug] [2019-12-08T02:07:37.597Z] [runtime-status] [3016] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2019-12-08T02:07:37.667Z] [runtime-status] [3016] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.8.0","resolution":"C:\\Users\\Xavier\\Downloads\\Website Projects\\Portfolio\\portfolio\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-12-08T02:07:37.810Z] [runtime-status] [3016] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\Xavier\\Downloads\\Website Projects\\Portfolio\\portfolio\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-12-08T02:07:37.812Z] [runtime-status] [3016] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\Xavier\\Downloads\\Website Projects\\Portfolio\\portfolio\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-12-08T02:07:39.003Z] Unsupported trigger: {"eventTrigger":{"resource":"projects/profolio-craft","eventType":"providers/firebase.auth/eventTypes/user.create","service":"firebaseauth.googleapis.com"},"name":"userJoined","entryPoint":"userJoined"}
+[info] i  functions[projectCreated]: function ignored because the firestore emulator does not exist or is not running.
+[info] i  functions[userJoined]: function ignored because the firebaseauth.googleapis.com emulator does not exist or is not running.
+[debug] [2019-12-08T02:07:39.027Z] [worker-~diagnostic~-a708be1d-06f4-43f5-9b9b-1ec461284b57]: exited
+[debug] [2019-12-08T02:07:39.027Z] [worker-~diagnostic~-a708be1d-06f4-43f5-9b9b-1ec461284b57]: FINISHED
