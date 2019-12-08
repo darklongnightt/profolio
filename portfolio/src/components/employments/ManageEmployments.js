@@ -11,36 +11,17 @@ import { editEmployment } from "../../store/actions/employmentActions";
 import { createEmployment } from "../../store/actions/employmentActions";
 
 class ManageEmployments extends Component {
-  state = {
-    modal: "",
-    collapsible: ""
-  };
-
-  componentDidMount() {
-    //Init and store all materialize elements
-    var collaps = document.querySelectorAll(".collapsible");
-    var collapsInstance = M.Collapsible.init(collaps, {});
-
-    var modal = document.querySelector(".modal");
-    var modalInstance = M.Modal.init(modal, {});
-    this.setState({
-      modal: modalInstance,
-      collapsible: collapsInstance
-    });
-  }
-
   handleDelete = employmentId => {
     this.props.deleteEmployment(employmentId);
   };
 
   handleEdit = employment => {
     this.props.editEmployment(employment);
-    this.state.modal.close();
   };
 
   handleCreate = employment => {
     this.props.createEmployment(employment);
-    this.state.modal.close();
+    this.props.onCloseModal();
   };
 
   render() {
@@ -49,8 +30,16 @@ class ManageEmployments extends Component {
 
     return (
       <div className="section container">
-
         <ul className="collapsible z-depth-0">
+          <li className="disabled">
+            <div className="collapsible-header grey darken-2 white-text center">
+              Employments
+            </div>
+            <div className="collapsible-body">
+              <p>Disabled</p>
+            </div>
+          </li>
+
           {employments &&
             employments.map(employment => {
               return (
@@ -70,16 +59,19 @@ class ManageEmployments extends Component {
                 </li>
               );
             })}
-        </ul>
 
-        <div className="center">
-          <a
-            className="btn-floating btn-large waves-effect waves-light red lighten-2 z-depth-0 modal-trigger"
-            href="#newEmployment"
-          >
-            <i className="material-icons">add</i>
-          </a>
-        </div>
+          <li className="disabled">
+            <div
+              className="collapsible-header modal-trigger blue lighten-3 white-text flow-text add-icon center waves-effect waves-light"
+              href="#newEmployment"
+            >
+              <i className="material-icons">add</i>
+            </div>
+            <div className="collapsible-body">
+              <p>Disabled</p>
+            </div>
+          </li>
+        </ul>
 
         <div id="newEmployment" className="modal modal-container">
           <div className="modal-content">

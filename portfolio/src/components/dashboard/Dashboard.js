@@ -5,21 +5,43 @@ import { compose } from "redux";
 import { Redirect } from "react-router-dom";
 import Notifications from "./Notifications";
 import ProjectList from "../projects/ProjectList";
+import ManageEmployments from "../employments/ManageEmployments";
+import ManageProjects from "../projects/ManageProjects";
+import M from "materialize-css";
+import ManageProfile from "../profile/ManageProfile";
 
 class Dashboard extends Component {
+  state = {
+    modals: ""
+  };
+
+  componentDidMount() {
+    M.AutoInit();
+    var modals = document.querySelectorAll(".modal");
+    var modalInstances = M.Modal.init(modals, {});
+    this.setState({ modals: modalInstances });
+  }
+
+  handleCloseModal = () => {
+    this.state.modals.map(modal => {
+      modal.close();
+    });
+  };
+
   render() {
     const { projects, auth, notifications } = this.props;
     if (!auth.uid) return <Redirect to="/signin" />;
 
     return (
-      <div className="dashboard container">
+      <div className="dashboard">
         <div className="row">
-          <div className="col s12 m6">
-            <ProjectList projects={projects} />
+          <div className="col m6 s12">
+            <ManageEmployments onCloseModal={this.handleCloseModal} />
+            <ManageProjects onCloseModal={this.handleCloseModal} />
           </div>
 
-          <div className="col s12 m5 offset-m1">
-            <Notifications notifications={notifications} />
+          <div className="col m6 s12">
+            <ManageProfile />
           </div>
         </div>
       </div>
@@ -28,7 +50,6 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
     projects: state.firestore.ordered.projects,
     auth: state.firebase.auth,
@@ -43,7 +64,7 @@ export default compose(
       {
         collection: "users",
         doc: props.auth.uid,
-        subcollections: [{ collection: "projects"}],
+        subcollections: [{ collection: "projects" }],
         orderBy: ["createdAt", "desc"],
         storeAs: "projects"
       },

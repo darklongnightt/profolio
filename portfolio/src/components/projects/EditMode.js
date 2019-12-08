@@ -63,6 +63,7 @@ class EditMode extends Component {
           </a>
 
           <h5>Edit Project</h5>
+          
           <br />
           <form onSubmit={this.handleSubmit} className="white">
             <div className="input-field">

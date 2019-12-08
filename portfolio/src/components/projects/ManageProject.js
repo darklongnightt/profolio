@@ -13,8 +13,7 @@ class ManageProject extends Component {
 
   render() {
     const { project, onDelete, onEdit } = this.props;
-    console.log(this.props);
-
+    
     if (project) {
       switch (this.state.mode) {
         case "VIEW":

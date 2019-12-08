@@ -20,16 +20,20 @@ const ViewMode = props => {
         <i className="material-icons">edit</i>
       </a>
 
-      <div>
-        <i class="fa fa-product-hunt action-icon" aria-hidden="true"></i>
+      <div >
+        <i className="fa fa-product-hunt action-icon" aria-hidden="true"></i>
         <span className="large-text">{project.title}</span>
       </div>
 
-      <div>
-        <i class="fa fa-list-ul action-icon" aria-hidden="true"></i>
+      <br/>
+      <div className="divider"></div>
+
+      <div >
+        <i className="fa fa-list-ul action-icon" aria-hidden="true"></i>
         {project.content}
       </div>
 
+      <br/>
       <div className="grey-text brand-text">
         <div>
           {project.modifiedAt &&

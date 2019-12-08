@@ -11,36 +11,17 @@ import { editProject } from "../../store/actions/projectActions";
 import { createProject } from "../../store/actions/projectActions";
 
 class ManageProjects extends Component {
-  state = {
-    modal: "",
-    collapsible: ""
-  };
-
-  componentDidMount() {
-    //Init and store all materialize elements
-    var collaps = document.querySelectorAll(".collapsible");
-    var collapsInstance = M.Collapsible.init(collaps, {});
-
-    var modal = document.querySelector(".modal");
-    var modalInstance = M.Modal.init(modal, {});
-    this.setState({
-      modal: modalInstance,
-      collapsible: collapsInstance
-    });
-  }
-
   handleDelete = projectId => {
     this.props.deleteProject(projectId);
   };
 
   handleEdit = project => {
     this.props.editProject(project);
-    this.state.modal.close();
   };
 
   handleCreate = project => {
     this.props.createProject(project);
-    this.state.modal.close();
+    this.props.onCloseModal();
   };
 
   render() {
@@ -49,8 +30,16 @@ class ManageProjects extends Component {
 
     return (
       <div className="section container">
-
         <ul className="collapsible z-depth-0">
+          <li className="disabled">
+            <div className="collapsible-header grey darken-2 white-text center">
+              Projects
+            </div>
+            <div className="collapsible-body">
+              <p>Disabled</p>
+            </div>
+          </li>
+
           {projects &&
             projects.map(project => {
               return (
@@ -70,16 +59,19 @@ class ManageProjects extends Component {
                 </li>
               );
             })}
-        </ul>
 
-        <div className="center">
-          <a
-            className="btn-floating btn-large waves-effect waves-light red lighten-2 z-depth-0 modal-trigger"
-            href="#newProject"
-          >
-            <i className="material-icons">add</i>
-          </a>
-        </div>
+          <li className="disabled">
+            <div
+              className="collapsible-header modal-trigger blue lighten-3 white-text flow-text add-icon center waves-effect waves-light"
+              href="#newProject"
+            >
+              <i className="material-icons">add</i>
+            </div>
+            <div className="collapsible-body">
+              <p>Disabled</p>
+            </div>
+          </li>
+        </ul>
 
         <div id="newProject" className="modal modal-container">
           <div className="modal-content">

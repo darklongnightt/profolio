@@ -21,7 +21,7 @@ const Navbar = props => {
         >
           .profolio
         </Link>
-        {links}
+        <div className="hide-on-med-and-down">{links}</div>
       </div>
     </nav>
   );

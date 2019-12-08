@@ -26,7 +26,9 @@ const ViewMode = props => {
         <span className="grey-text"> at </span>
         <span className="large-text">{employment.company}</span>
       </div>
-
+      <br/>
+      <div className="divider"></div>
+      
       <div className="grey-text">
         <i className="material-icons action-icon">date_range</i>
         {moment(employment.fromDate).format("MMMM YYYY")} to{" "}

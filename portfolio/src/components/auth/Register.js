@@ -61,7 +61,7 @@ class Register extends Component {
                 <div className="col s12 m6">
                   <div className="input-field">
                     <i className="material-icons prefix"></i>
-                    <label htmlFor="email">Last Name</label>
+                    <label htmlFor="lastName">Last Name</label>
                     <input
                       type="text"
                       id="lastName"
