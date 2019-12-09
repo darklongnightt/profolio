@@ -30,13 +30,9 @@ class ManageProfile extends Component {
       return (
         <div className="section container">
           <div className="card z-depth-0 auth-form">
-            <div className="card-content">
-              <ProfileSummary profile={profile} onEdit={this.handleEdit} />
-              <ViewProfile profile={profile} />
-            </div>
+            <ProfileSummary profile={profile} onEdit={this.handleEdit} />
+            <ViewProfile profile={profile} />
           </div>
-
-          
         </div>
       );
     } else {

@@ -8,7 +8,6 @@ class EditProfile extends Component {
     industry: "",
     summary: "",
     socialUrl: "",
-    photoUrl: "",
     error: ""
   };
 

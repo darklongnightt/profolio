@@ -27,7 +27,7 @@ class ProfileSummary extends Component {
     var progress = (length / total) * 100;
 
     return (
-      <div className="card z-depth-0 profile-summary grey darken-1 white-text">
+      <div className="card z-depth-0 profile-summary grey darken-1 white-text center">
         <a
           className="btn-floating halfway-fab btn-large waves-effect waves-light blue modal-trigger"
           href="#editProfile"
@@ -35,13 +35,15 @@ class ProfileSummary extends Component {
           <i className="material-icons">edit</i>
         </a>
 
-        <div className="card-content center">
+        <div className="card-content">
           <h5 className="bold">
             Profile Progress:{" "}
             <span className="flow-text red-text bold brand-text">
               {progress}%
             </span>
           </h5>
+
+          <h5 className="green-text brand-text text-lighten-2 center">Hurray! Your profile is good to go!</h5>
 
           <ul>
             <li>
