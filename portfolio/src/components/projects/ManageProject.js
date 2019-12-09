@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import ViewMode from "./ViewMode";
-import EditMode from "./EditMode";
+import ViewProject from "./ViewProject";
+import EditProject from "./EditProject";
 
 class ManageProject extends Component {
   state = {
@@ -18,7 +18,7 @@ class ManageProject extends Component {
       switch (this.state.mode) {
         case "VIEW":
           return (
-            <ViewMode
+            <ViewProject
               project={project}
               onDelete={onDelete}
               onSetMode={this.handleSetMode}
@@ -27,7 +27,7 @@ class ManageProject extends Component {
 
         case "EDIT":
           return (
-            <EditMode
+            <EditProject
               project={project}
               onDelete={onDelete}
               onSetMode={this.handleSetMode}

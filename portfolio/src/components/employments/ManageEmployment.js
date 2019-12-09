@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import ViewMode from "./ViewMode";
-import EditMode from "./EditMode";
+import ViewEmployment from "./ViewEmployment";
+import EditEmployment from "./EditEmployment";
 
 class ManageEmployment extends Component {
   state = {
@@ -18,7 +18,7 @@ class ManageEmployment extends Component {
       switch (this.state.mode) {
         case "VIEW":
           return (
-            <ViewMode
+            <ViewEmployment
               employment={employment}
               onDelete={onDelete}
               onSetMode={this.handleSetMode}
@@ -27,7 +27,7 @@ class ManageEmployment extends Component {
 
         case "EDIT":
           return (
-            <EditMode
+            <EditEmployment
               employment={employment}
               onDelete={onDelete}
               onSetMode={this.handleSetMode}

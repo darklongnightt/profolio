@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class EditMode extends Component {
+class EditEmployment extends Component {
   state = {
     title: "",
     content: "",
@@ -190,4 +190,4 @@ class EditMode extends Component {
   }
 }
 
-export default EditMode;
+export default EditEmployment;

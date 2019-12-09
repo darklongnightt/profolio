@@ -1,7 +1,7 @@
 import React from "react";
 import moment from "moment";
 
-const ViewMode = props => {
+const ViewEmployment = props => {
   const { employment, onDelete, onSetMode } = props;
   return (
     <React.Fragment>
@@ -54,4 +54,4 @@ const ViewMode = props => {
   );
 };
 
-export default ViewMode;
+export default ViewEmployment;
