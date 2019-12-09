@@ -84,7 +84,6 @@ class EditEmployment extends Component {
           <h5>Edit Employment</h5>
 
           <form onSubmit={this.handleSubmit} className="white">
-
             <p>
               <label>
                 <input
@@ -97,10 +96,12 @@ class EditEmployment extends Component {
               </label>
             </p>
 
-            <br/>
+            <br />
             <div className="input-field">
               <i className="material-icons prefix">business_center</i>
-              <label htmlFor="title" className="active">Job Title</label>
+              <label htmlFor="title" className="active">
+                Job Title
+              </label>
               <input
                 type="text"
                 id="title"
@@ -111,7 +112,9 @@ class EditEmployment extends Component {
 
             <div className="input-field">
               <i className="material-icons prefix"></i>
-              <label htmlFor="company" className="active">Company</label>
+              <label htmlFor="company" className="active">
+                Company
+              </label>
               <input
                 type="text"
                 id="company"
@@ -149,7 +152,9 @@ class EditEmployment extends Component {
 
             <div className="input-field">
               <i className="material-icons prefix">book</i>
-              <label htmlFor="content" className="active">Job Description</label>
+              <label htmlFor="content" className="active">
+                Job Description
+              </label>
               <textarea
                 id="content"
                 className="materialize-textarea"

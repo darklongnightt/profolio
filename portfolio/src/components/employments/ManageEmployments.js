@@ -3,7 +3,6 @@ import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
 import { compose } from "redux";
-import M from "materialize-css";
 import ManageEmployment from "./ManageEmployment";
 import CreateEmployment from "./CreateEmployment";
 import { deleteEmployment } from "../../store/actions/employmentActions";

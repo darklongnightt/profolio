@@ -3,7 +3,6 @@ import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
 import { compose } from "redux";
-import M from "materialize-css";
 import ManageProject from "./ManageProject";
 import CreateProject from "./CreateProject";
 import { deleteProject } from "../../store/actions/projectActions";

@@ -25,7 +25,7 @@ main {
 
 .auth-form {
   border-style: solid;
-  border-radius: 15px;
+  border-radius: 15px !important;
   border-color: grey;
   border-width: 2px;
   padding: 25px;
@@ -101,6 +101,14 @@ label.active {
   border-width: 2px;
 }
 
+.modal-content {
+  height: 100% !important;
+}
+
 .checkbox-left {
   display: inline-block !important;
+}
+
+.profile-summary {
+  border-radius: 15px !important;
 }

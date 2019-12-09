@@ -4,23 +4,44 @@ import { connect } from "react-redux";
 import ViewProfile from "./ViewProfile";
 import EditProfile from "./EditProfile";
 import ProfileSummary from "./ProfileSummary";
+import { editProfile } from "../../store/actions/profileActions";
+import M from "materialize-css";
 
 class ManageProfile extends Component {
+  state = {
+    modals: ""
+  };
+
+  handleEdit = profile => {
+    this.props.editProfile(profile);
+  };
+
+  handleCloseModal = () => {
+    this.state.modals.map(modal => {
+      return modal.close();
+    });
+  };
+
   render() {
     const { profile, auth } = this.props;
     if (!auth.uid) return <Redirect to="/signin" />;
 
     if (!profile.isEmpty) {
       return (
-        <React.Fragment>
-          <ProfileSummary profile={profile} />
-          <ViewProfile profile={profile}></ViewProfile>
-          <EditProfile profile={profile}></EditProfile>
-        </React.Fragment>
+        <div className="section container">
+          <div className="card z-depth-0 auth-form">
+            <div className="card-content">
+              <ProfileSummary profile={profile} onEdit={this.handleEdit} />
+              <ViewProfile profile={profile} />
+            </div>
+          </div>
+
+          
+        </div>
       );
     } else {
       return (
-        <div className="container center">
+        <div className="section container center">
           <div className="preloader-wrapper big active preloader-margin">
             <div className="spinner-layer spinner-blue-only">
               <div className="circle-clipper left">
@@ -40,6 +61,12 @@ class ManageProfile extends Component {
   }
 }
 
+const mapDispatchToProps = dispatch => {
+  return {
+    editProfile: profile => dispatch(editProfile(profile))
+  };
+};
+
 const mapStateToProps = state => {
   return {
     profile: state.firebase.profile,
@@ -47,4 +74,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(ManageProfile);
+export default connect(mapStateToProps, mapDispatchToProps)(ManageProfile);

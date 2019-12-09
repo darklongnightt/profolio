@@ -11,6 +11,7 @@ import Register from "./components/auth/Register";
 import CreateProject from "./components/projects/CreateProject";
 import ManageProjects from "./components/projects/ManageProjects";
 import ManageEmployments from "./components/employments/ManageEmployments";
+import ManageProfile from "./components/profile/ManageProfile";
 
 const App = props => {
   const auth = props.auth;
@@ -28,6 +29,7 @@ const App = props => {
             <Route path="/manage_projects" component={ManageProjects} />
             <Route path="/manage_employments" component={ManageEmployments} />
             <Route path="/manage_education" />
+            <Route path="/manage_profile" component={ManageProfile} />
           </Switch>
           <Footer />
         </div>

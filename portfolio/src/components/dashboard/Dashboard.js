@@ -41,7 +41,6 @@ class Dashboard extends Component {
           </div>
 
           <div className="col m6 s12">
-            <ManageProfile />
           </div>
         </div>
       </div>

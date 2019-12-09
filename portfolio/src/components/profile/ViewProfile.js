@@ -21,7 +21,7 @@ const ViewProfile = props => {
           <div className="col s6 m6">
             <div className="profile-image">Image Placeholder</div>
             <h5 className="bold">Industry</h5>
-            <div>{profile.jobType ? profile.jobType : "Empty Field"}</div>
+            <div>{profile.industry ? profile.industry : "Empty Field"}</div>
           </div>
         </div>
 
