@@ -43,7 +43,11 @@ class ProfileSummary extends Component {
             </span>
           </h5>
 
-          <h5 className="green-text brand-text text-lighten-2 center">Hurray! Your profile is good to go!</h5>
+          {progress === 100 && (
+            <h5 className="green-text brand-text text-lighten-2 center">
+              Hurray! Your profile is good to go!
+            </h5>
+          )}
 
           <ul>
             <li>
@@ -59,35 +63,35 @@ class ProfileSummary extends Component {
             </li>
             <li>
               {!profile.industry && (
-                <div>
+                <a className="modal-trigger white-text" href="#editProfile">
                   <i
                     className="fa fa-plus-circle nav-icon"
                     aria-hidden="true"
                   ></i>
                   Add Industry
-                </div>
+                </a>
               )}
             </li>
             <li>
               {!profile.socialUrl && (
-                <div>
+                <a className="modal-trigger white-text" href="#editProfile">
                   <i
                     className="fa fa-plus-circle nav-icon"
                     aria-hidden="true"
                   ></i>
                   Add Social Link
-                </div>
+                </a>
               )}
             </li>
             <li>
               {!profile.summary && (
-                <div>
+                <a className="modal-trigger white-text" href="#editProfile">
                   <i
                     className="fa fa-plus-circle nav-icon"
                     aria-hidden="true"
                   ></i>
                   Add Summary
-                </div>
+                </a>
               )}
             </li>
           </ul>

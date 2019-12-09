@@ -4,11 +4,9 @@ import { firestoreConnect } from "react-redux-firebase";
 import { compose } from "redux";
 import { Redirect } from "react-router-dom";
 import Notifications from "./Notifications";
-import ProjectList from "../projects/ProjectList";
 import ManageEmployments from "../employments/ManageEmployments";
 import ManageProjects from "../projects/ManageProjects";
 import M from "materialize-css";
-import ManageProfile from "../profile/ManageProfile";
 
 class Dashboard extends Component {
   state = {
@@ -24,12 +22,12 @@ class Dashboard extends Component {
 
   handleCloseModal = () => {
     this.state.modals.map(modal => {
-      modal.close();
+      return modal.close();
     });
   };
 
   render() {
-    const { projects, auth, notifications } = this.props;
+    const { auth, notifications } = this.props;
     if (!auth.uid) return <Redirect to="/signin" />;
 
     return (

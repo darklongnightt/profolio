@@ -2,24 +2,12 @@ import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import ViewProfile from "./ViewProfile";
-import EditProfile from "./EditProfile";
 import ProfileSummary from "./ProfileSummary";
 import { editProfile } from "../../store/actions/profileActions";
-import M from "materialize-css";
 
 class ManageProfile extends Component {
-  state = {
-    modals: ""
-  };
-
   handleEdit = profile => {
     this.props.editProfile(profile);
-  };
-
-  handleCloseModal = () => {
-    this.state.modals.map(modal => {
-      return modal.close();
-    });
   };
 
   render() {

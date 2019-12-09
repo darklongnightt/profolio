@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import storage from "../../config/firebaseConfig";
-import config from "../../config/firebaseConfig";
 import { connect } from "react-redux";
 import { uploadPhoto } from "../../store/actions/profileActions";
 import profile_placeholder from "../../img/profile_placeholder.png";
@@ -9,11 +7,6 @@ class PhotoUpload extends Component {
   state = {
     photo: null
   };
-
-  componentDidMount() {
-    console.log(config);
-    console.log(storage);
-  }
 
   handleChange = e => {
     if (e.target.files[0]) {
@@ -32,7 +25,7 @@ class PhotoUpload extends Component {
     return (
       <div>
         <div className="file-field input-field">
-          <div className="hover-container">
+          <div className="hover-container circle ">
             <img
               src={profile.photoUrl || profile_placeholder}
               alt="Uploaded Images"
@@ -41,9 +34,9 @@ class PhotoUpload extends Component {
               width="250"
             />
 
-            <div class="overlay circle">
-              <div class="hover-text">
-              <i class="fa fa-camera" aria-hidden="true"></i>
+            <div className="overlay ">
+              <div className="hover-text">
+                <i className="fa fa-camera" aria-hidden="true"></i>
               </div>
             </div>
 
@@ -55,7 +48,7 @@ class PhotoUpload extends Component {
           onClick={this.handleUpload}
           className="btn z-depth-0 blue darken-2 form-btn waves-effect waves-light"
         >
-          <i class="fa fa-cloud-upload" aria-hidden="true"></i>
+          <i className="fa fa-cloud-upload" aria-hidden="true"></i>
         </button>
       </div>
     );
