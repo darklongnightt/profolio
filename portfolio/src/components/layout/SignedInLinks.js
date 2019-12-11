@@ -4,29 +4,15 @@ import { connect } from "react-redux";
 import { signOut } from "../../store/actions/authActions";
 
 const SignedInLinks = props => {
-  const { profile } = props;
+  const { profile, auth } = props;
 
   return (
     <div>
       <ul className="right">
         <li>
-          <NavLink to="/manage_employments">
-            <i className="fa fa-briefcase nav-icon" aria-hidden="true"></i>
-            Employments
-          </NavLink>
-        </li>
-
-        <li>
-          <NavLink to="/manage_educations">
-            <i className="fa fa-graduation-cap nav-icon" aria-hidden="true"></i>
-            Educations
-          </NavLink>
-        </li>
-
-        <li>
-          <NavLink to="/manage_projects">
-            <i className="fa fa-product-hunt nav-icon" aria-hidden="true"></i>
-            Projects
+          <NavLink to={`/publishings/${auth.uid}`}>
+            <i className="fa fa-globe nav-icon" aria-hidden="true"></i>
+            My Publishing
           </NavLink>
         </li>
 

@@ -1,12 +1,25 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { updateSettings } from "../../store/actions/profileActions";
 
 class PublishSettings extends Component {
   state = {
-    employments: true,
-    educations: true,
-    projects: true,
-    customs: true
+    publishEmployments: true,
+    publishEducations: true,
+    publishProjects: true,
+    publishCustoms: true
   };
+
+  constructor(props) {
+    super(props);
+    const { profile } = this.props;
+    this.state = {
+      publishEmployments: true && profile.publishEmployments,
+      publishEducations: true && profile.publishEducations,
+      publishProjects: true && profile.publishProjects,
+      publishCustoms: true && profile.publishCustoms
+    };
+  }
 
   handleChange = e => {
     this.setState({
@@ -15,7 +28,7 @@ class PublishSettings extends Component {
   };
 
   handleSubmit = e => {
-    console.log(this.state);
+    this.props.updateSettings(this.state);
   };
 
   render() {
@@ -36,9 +49,9 @@ class PublishSettings extends Component {
               <label>
                 <input
                   type="checkbox"
-                  id="educations"
+                  id="publishEducations"
                   onChange={this.handleChange}
-                  checked={this.state.educations}
+                  checked={this.state.publishEducations}
                 />
                 <span className="lever"></span>
               </label>
@@ -52,9 +65,9 @@ class PublishSettings extends Component {
               <label>
                 <input
                   type="checkbox"
-                  id="employments"
+                  id="publishEmployments"
                   onChange={this.handleChange}
-                  checked={this.state.employments}
+                  checked={this.state.publishEmployments}
                 />
                 <span className="lever"></span>
               </label>
@@ -68,9 +81,9 @@ class PublishSettings extends Component {
               <label>
                 <input
                   type="checkbox"
-                  id="projects"
+                  id="publishProjects"
                   onChange={this.handleChange}
-                  checked={this.state.projects}
+                  checked={this.state.publishProjects}
                 />
                 <span className="lever"></span>
               </label>
@@ -84,9 +97,9 @@ class PublishSettings extends Component {
               <label>
                 <input
                   type="checkbox"
-                  id="customs"
+                  id="publishCustoms"
                   onChange={this.handleChange}
-                  checked={this.state.customs}
+                  checked={this.state.publishCustoms}
                 />
                 <span className="lever"></span>
               </label>
@@ -107,4 +120,16 @@ class PublishSettings extends Component {
   }
 }
 
-export default PublishSettings;
+const mapStateToProps = state => {
+  return {
+    profile: state.firebase.profile
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    updateSettings: settings => dispatch(updateSettings(settings))
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(PublishSettings);

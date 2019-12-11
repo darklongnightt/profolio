@@ -69,3 +69,30 @@ export const uploadPhoto = photo => {
       });
   };
 };
+
+export const updateSettings = settings => {
+  return (dispatch, getState, { getFirebase, getFirestore }) => {
+    // Get states from the store
+    const firestore = getFirestore();
+    const userId = getState().firebase.auth.uid;
+
+    // Adding settings to the user
+    firestore
+      .collection("users")
+      .doc(userId)
+      .get()
+      .then(doc => {
+        const userData = doc.data();
+        firestore
+          .collection("users")
+          .doc(userId)
+          .set({
+            ...userData,
+            ...settings
+          })
+          .then(() => {
+            console.log("UPDATE_SETTINGS", settings);
+          });
+      });
+  };
+};

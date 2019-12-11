@@ -175,3 +175,11 @@ label.active {
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
+.parallax-top {
+  bottom: 300px;
+}
+
+.parallax-btm {
+  top: 300px;
+}

@@ -32,7 +32,7 @@ class ManageCustoms extends Component {
         <ul className="collapsible z-depth-0">
           <li className="disabled">
             <div className="collapsible-header grey darken-2 white-text center">
-              <i className="fa fa-child" aria-hidden="true"></i>
+              <i className="fa fa-trophy" aria-hidden="true"></i>
               Custom Sections
             </div>
             <div className="collapsible-body">
