@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 
-class EditEmployment extends Component {
+class EditEducation extends Component {
   state = {
-    title: "",
+    course: "",
     content: "",
-    company: "",
+    institute: "",
     fromDate: "",
     toDate: "",
     current: false,
@@ -14,17 +14,17 @@ class EditEmployment extends Component {
 
   constructor(props) {
     super(props);
-    const { employment } = this.props;
+    const { education } = this.props;
 
     this.state = {
-      title: employment.title || "",
-      content: employment.content || "",
-      company: employment.company || "",
-      fromDate: employment.fromDate || "",
-      toDate: employment.toDate || "",
-      current: employment.current || false,
-      id: employment.id || "",
-      createdAt: employment.createdAt || ""
+      course: education.course || "",
+      content: education.content || "",
+      institute: education.institute || "",
+      fromDate: education.fromDate || "",
+      toDate: education.toDate || "",
+      current: education.current || false,
+      id: education.id || "",
+      createdAt: education.createdAt || ""
     };
   }
 
@@ -44,15 +44,15 @@ class EditEmployment extends Component {
     e.preventDefault();
 
     if (
-      this.state.title === "" ||
+      this.state.course === "" ||
       this.state.content === "" ||
-      this.state.company === "" ||
+      this.state.institute === "" ||
       this.state.fromDate === "" ||
       (this.state.toDate === "" && this.state.current === false)
     ) {
       this.setState({
         ...this.state,
-        error: "Employment title and content are required."
+        error: "Education course and content are required."
       });
     } else {
       this.props.onEdit(this.state);
@@ -61,15 +61,15 @@ class EditEmployment extends Component {
   };
 
   render() {
-    const { employment, onDelete, onSetMode } = this.props;
+    const { education, onDelete, onSetMode } = this.props;
 
-    if (employment) {
+    if (education) {
       return (
         <React.Fragment>
           <a
             href="#!"
             className="right grey-text text-darken-2 action-icon"
-            onClick={() => onDelete(employment.id)}
+            onClick={() => onDelete(education.id)}
           >
             <i className="material-icons">delete</i>
           </a>
@@ -81,7 +81,7 @@ class EditEmployment extends Component {
             <i className="material-icons">chrome_reader_mode</i>
           </a>
 
-          <h5>Edit Employment</h5>
+          <h5>Edit Education</h5>
 
           <form onSubmit={this.handleSubmit} className="white">
             <p>
@@ -92,34 +92,35 @@ class EditEmployment extends Component {
                   checked={this.state.current}
                   onChange={this.handleCheck}
                 />
-                <span>Currently Work Here</span>
+                <span>Currently Study Here</span>
               </label>
             </p>
 
             <br />
+
             <div className="input-field">
-              <i className="material-icons prefix">business_center</i>
-              <label htmlFor="title" className="active">
-                Job Title
+              <i className="material-icons prefix">school</i>
+              <label htmlFor="institute" className="active">
+                Institute
               </label>
               <input
                 type="text"
-                id="title"
+                id="institute"
                 onChange={this.handleChange}
-                value={this.state.title}
+                value={this.state.institute}
               />
             </div>
 
             <div className="input-field">
               <i className="material-icons prefix"></i>
-              <label htmlFor="company" className="active">
-                Company
+              <label htmlFor="course" className="active">
+                Course
               </label>
               <input
                 type="text"
-                id="company"
+                id="course"
                 onChange={this.handleChange}
-                value={this.state.company}
+                value={this.state.course}
               />
             </div>
 
@@ -195,4 +196,4 @@ class EditEmployment extends Component {
   }
 }
 
-export default EditEmployment;
+export default EditEducation;

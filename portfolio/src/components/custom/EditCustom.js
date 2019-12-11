@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class EditProject extends Component {
+class EditCustom extends Component {
   state = {
     title: "",
     content: "",
@@ -10,14 +10,14 @@ class EditProject extends Component {
 
   constructor(props) {
     super(props);
-    const { project } = this.props;
-    console.log(project);
+    const { custom } = this.props;
+    console.log(custom);
 
     this.state = {
-      title: project.title || "",
-      content: project.content || "",
-      id: project.id || "",
-      createdAt: project.createdAt
+      title: custom.title || "",
+      content: custom.content || "",
+      id: custom.id || "",
+      createdAt: custom.createdAt
     };
   }
 
@@ -33,7 +33,7 @@ class EditProject extends Component {
     if (this.state.title === "" || this.state.content === "") {
       this.setState({
         ...this.state,
-        error: "Project title and content are required."
+        error: "Custom title and content are required."
       });
     } else {
       this.props.onEdit(this.state);
@@ -42,15 +42,15 @@ class EditProject extends Component {
   };
 
   render() {
-    const { project, onDelete, onSetMode } = this.props;
+    const { custom, onDelete, onSetMode, active } = this.props;
 
-    if (project) {
+    if (active) {
       return (
-        <React.Fragment>
+        <div>
           <a
             href="#!"
             className="right grey-text text-darken-2 action-icon"
-            onClick={() => onDelete(project.id)}
+            onClick={() => onDelete(custom.id)}
           >
             <i className="material-icons">delete</i>
           </a>
@@ -62,14 +62,14 @@ class EditProject extends Component {
             <i className="material-icons">chrome_reader_mode</i>
           </a>
 
-          <h5>Edit Project</h5>
-          
+          <h5>Edit Custom</h5>
+
           <br />
           <form onSubmit={this.handleSubmit} className="white">
             <div className="input-field">
               <i className="material-icons prefix">title</i>
               <label className="active" htmlFor="title">
-                Project Title
+                Custom Title
               </label>
               <input
                 type="text"
@@ -82,7 +82,7 @@ class EditProject extends Component {
             <div className="input-field">
               <i className="material-icons prefix">book</i>
               <label className="active" htmlFor="content">
-                Project Content
+                Custom Content
               </label>
               <textarea
                 id="content"
@@ -100,28 +100,12 @@ class EditProject extends Component {
               </button>
             </div>
           </form>
-        </React.Fragment>
-      );
-    } else {
-      return (
-        <div className="container center">
-          <div className="preloader-wrapper big active preloader-margin">
-            <div className="spinner-layer spinner-blue-only">
-              <div className="circle-clipper left">
-                <div className="circle"></div>
-              </div>
-              <div className="gap-patch">
-                <div className="circle"></div>
-              </div>
-              <div className="circle-clipper right">
-                <div className="circle"></div>
-              </div>
-            </div>
-          </div>
         </div>
       );
+    } else {
+      return <div></div>;
     }
   }
 }
 
-export default EditProject;
+export default EditCustom;

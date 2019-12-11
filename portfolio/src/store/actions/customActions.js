@@ -1,32 +1,32 @@
 const cleanData = ({ error, mode, ...rest }) => rest;
 
-export const createEmployment = employment => {
+export const createCustom = custom => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     // Get states from the store
     const firestore = getFirestore();
     const userId = getState().firebase.auth.uid;
-    employment = cleanData(employment);
+    custom = cleanData(custom);
 
     // Make async db call then dispatch state
     firestore
       .collection("users")
       .doc(userId)
-      .collection("employments")
+      .collection("customs")
       .add({
-        ...employment,
+        ...custom,
         userId: userId,
         createdAt: new Date()
       })
       .then(() => {
-        dispatch({ type: "CREATE_EMPLOYMENT", employment });
+        dispatch({ type: "CREATE_CUSTOM", custom });
       })
       .catch(err => {
-        dispatch({ type: "CREATE_EMPLOYMENT_ERROR", err });
+        dispatch({ type: "CREATE_CUSTOM_ERROR", err });
       });
   };
 };
 
-export const deleteEmployment = employmentId => {
+export const deleteCustom = customId => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     // Get states from the store
     const firestore = getFirestore();
@@ -36,41 +36,41 @@ export const deleteEmployment = employmentId => {
     firestore
       .collection("users")
       .doc(userId)
-      .collection("employments")
-      .doc(employmentId)
+      .collection("customs")
+      .doc(customId)
       .delete()
       .then(() => {
-        dispatch({ type: "DELETE_EMPLOYMENT", employmentId });
+        dispatch({ type: "DELETE_CUSTOM", customId });
       })
       .catch(err => {
-        dispatch({ type: "DELETE_EMPLOYMENT_ERROR", err });
+        dispatch({ type: "DELETE_CUSTOM_ERROR", err });
       });
   };
 };
 
-export const editEmployment = (employment) => {
+export const editCustom = (custom) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     // Get states from the store
     const firestore = getFirestore();
     const userId = getState().firebase.auth.uid;
-    employment = cleanData(employment);
+    custom = cleanData(custom);
 
     // Make async db call then dispatch state
     firestore
       .collection("users")
       .doc(userId)
-      .collection("employments")
-      .doc(employment.id)
+      .collection("customs")
+      .doc(custom.id)
       .set({
-        ...employment,
+        ...custom,
         userId: userId,
         modifiedAt: new Date()
       })
       .then(() => {
-        dispatch({ type: "EDIT_EMPLOYMENT", employment });
+        dispatch({ type: "EDIT_CUSTOM", custom });
       })
       .catch(err => {
-        dispatch({ type: "EDIT_EMPLOYMENT_ERROR", err });
+        dispatch({ type: "EDIT_CUSTOM_ERROR", err });
       });
   };
 };

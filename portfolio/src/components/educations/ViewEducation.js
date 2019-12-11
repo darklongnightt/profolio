@@ -1,14 +1,14 @@
 import React from "react";
 import moment from "moment";
 
-const ViewEmployment = props => {
-  const { employment, onDelete, onSetMode } = props;
+const ViewEducation = props => {
+  const { education, onDelete, onSetMode } = props;
   return (
     <React.Fragment>
       <a
         href="#!"
         className="right grey-text text-darken-2 action-icon"
-        onClick={() => onDelete(employment.id)}
+        onClick={() => onDelete(education.id)}
       >
         <i className="material-icons">delete</i>
       </a>
@@ -20,34 +20,35 @@ const ViewEmployment = props => {
         <i className="material-icons">edit</i>
       </a>
 
-      <div className="large-text">{employment.title}</div>
-      <div className="medium-text">{employment.company}</div>
-      <br/>
+      <div className="large-text">{education.course}</div>
+      <div className="medium-text">{education.institute}</div>
+
+      <br />
       <div className="divider"></div>
-      
+
       <div className="grey-text">
         <i className="material-icons action-icon">date_range</i>
-        {moment(employment.fromDate).format("MMMM YYYY")} to{" "}
-        {employment.current === true
+        {moment(education.fromDate).format("MMMM YYYY")} to{" "}
+        {education.current === true
           ? "Present"
-          : moment(employment.toDate).format("MMMM YYYY")}
+          : moment(education.toDate).format("MMMM YYYY")}
       </div>
 
       <div>
         <i className="material-icons action-icon">format_list_bulleted</i>
-        {employment.content}
+        {education.content}
       </div>
 
       <br />
       <div className="grey-text brand-text">
         <div>
-          {employment.modifiedAt &&
-            "Modified " + moment(employment.modifiedAt.toDate()).calendar()}
+          {education.modifiedAt &&
+            "Modified " + moment(education.modifiedAt.toDate()).calendar()}
         </div>
-        <div>Created {moment(employment.createdAt.toDate()).calendar()}</div>
+        <div>Created {moment(education.createdAt.toDate()).calendar()}</div>
       </div>
     </React.Fragment>
   );
 };
 
-export default ViewEmployment;
+export default ViewEducation;

@@ -31,7 +31,7 @@ const SignedInLinks = props => {
         </li>
 
         <li>
-          <a href="# " onClick={props.signOut}>
+          <a href="#!" onClick={props.signOut}>
             <i className="fa fa-sign-out nav-icon" aria-hidden="true"></i>
             Sign Out
           </a>

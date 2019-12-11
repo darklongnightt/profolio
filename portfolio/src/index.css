@@ -17,6 +17,10 @@ main {
   font-size: 22px;
 }
 
+.medium-text {
+  font-size: 18px;
+}
+
 .form-btn {
   width: 250px;
   border-radius: 25px !important;
@@ -43,6 +47,14 @@ i.active {
 
 label.active {
   color: #1976d2 !important;
+}
+
+.switch label input[type="checkbox"]:checked + .lever {
+  background-color: #bbdefb !important;
+}
+
+.switch label input[type="checkbox"]:checked + .lever:after {
+  background-color: #64b5f6 !important;
 }
 
 .preloader-margin {
@@ -148,4 +160,18 @@ label.active {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   text-align: center;
+}
+
+.section-height {
+  min-height: 400px !important;
+}
+
+.publish-section {
+  float: left;
+  width: 165px;
+}
+
+.switch {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }

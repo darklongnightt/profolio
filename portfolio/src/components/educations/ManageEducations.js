@@ -3,28 +3,28 @@ import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
 import { compose } from "redux";
-import ManageEmployment from "./ManageEmployment";
-import CreateEmployment from "./CreateEmployment";
-import { deleteEmployment } from "../../store/actions/employmentActions";
-import { editEmployment } from "../../store/actions/employmentActions";
-import { createEmployment } from "../../store/actions/employmentActions";
+import ManageEducation from "./ManageEducation";
+import CreateEducation from "./CreateEducation";
+import { deleteEducation } from "../../store/actions/educationActions";
+import { editEducation } from "../../store/actions/educationActions";
+import { createEducation } from "../../store/actions/educationActions";
 
-class ManageEmployments extends Component {
-  handleDelete = employmentId => {
-    this.props.deleteEmployment(employmentId);
+class ManageEducations extends Component {
+  handleDelete = educationId => {
+    this.props.deleteEducation(educationId);
   };
 
-  handleEdit = employment => {
-    this.props.editEmployment(employment);
+  handleEdit = education => {
+    this.props.editEducation(education);
   };
 
-  handleCreate = employment => {
-    this.props.createEmployment(employment);
+  handleCreate = education => {
+    this.props.createEducation(education);
     this.props.onCloseModal();
   };
 
   render() {
-    const { employments, auth } = this.props;
+    const { educations, auth } = this.props;
     if (!auth.uid) return <Redirect to="/signin" />;
 
     return (
@@ -32,28 +32,28 @@ class ManageEmployments extends Component {
         <ul className="collapsible z-depth-0">
           <li className="disabled">
             <div className="collapsible-header grey darken-2 white-text center">
-            <i className="fa fa-briefcase nav-icon" aria-hidden="true"></i>
-              Employments
+              <i className="fa fa-graduation-cap" aria-hidden="true"></i>
+              Educations
             </div>
             <div className="collapsible-body">
               <p>Disabled</p>
             </div>
           </li>
 
-          {employments &&
-            employments.map(employment => {
+          {educations &&
+            educations.map(education => {
               return (
-                <li key={employment.id}>
+                <li key={education.id}>
                   <div className="collapsible-header">
-                    {employment.title}
+                    {education.institute}
                     <i className="material-icons right">arrow_drop_down</i>
                   </div>
 
                   <div className="collapsible-body">
-                    <ManageEmployment
+                    <ManageEducation
                       onDelete={this.handleDelete}
                       onEdit={this.handleEdit}
-                      employment={employment}
+                      education={education}
                     />
                   </div>
                 </li>
@@ -63,7 +63,7 @@ class ManageEmployments extends Component {
           <li className="disabled">
             <div
               className="collapsible-header modal-trigger blue lighten-3 white-text flow-text add-icon center waves-effect waves-light"
-              href="#newEmployment"
+              href="#newEducation"
             >
               <i className="material-icons">add</i>
             </div>
@@ -73,9 +73,9 @@ class ManageEmployments extends Component {
           </li>
         </ul>
 
-        <div id="newEmployment" className="modal modal-container">
+        <div id="newEducation" className="modal modal-container">
           <div className="modal-content">
-            <CreateEmployment onCreate={this.handleCreate} />
+            <CreateEducation onCreate={this.handleCreate} />
           </div>
         </div>
       </div>
@@ -85,16 +85,16 @@ class ManageEmployments extends Component {
 
 const mapStateToProps = state => {
   return {
-    employments: state.firestore.ordered.employments,
+    educations: state.firestore.ordered.educations,
     auth: state.firebase.auth
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    deleteEmployment: employmentId => dispatch(deleteEmployment(employmentId)),
-    editEmployment: employment => dispatch(editEmployment(employment)),
-    createEmployment: employment => dispatch(createEmployment(employment))
+    deleteEducation: educationId => dispatch(deleteEducation(educationId)),
+    editEducation: education => dispatch(editEducation(education)),
+    createEducation: education => dispatch(createEducation(education))
   };
 };
 
@@ -105,10 +105,10 @@ export default compose(
       {
         collection: "users",
         doc: props.auth.uid,
-        subcollections: [{ collection: "employments" }],
+        subcollections: [{ collection: "educations" }],
         orderBy: ["createdAt", "desc"],
-        storeAs: "employments"
+        storeAs: "educations"
       }
     ];
   })
-)(ManageEmployments);
+)(ManageEducations);

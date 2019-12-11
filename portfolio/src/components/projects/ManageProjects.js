@@ -28,10 +28,11 @@ class ManageProjects extends Component {
     if (!auth.uid) return <Redirect to="/signin" />;
 
     return (
-      <div className="section container">
+      <div className="section">
         <ul className="collapsible z-depth-0">
           <li className="disabled">
             <div className="collapsible-header grey darken-2 white-text center">
+              <i className="fa fa-product-hunt" aria-hidden="true"></i>
               Projects
             </div>
             <div className="collapsible-body">

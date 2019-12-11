@@ -1,32 +1,32 @@
 const cleanData = ({ error, mode, ...rest }) => rest;
 
-export const createEmployment = employment => {
+export const createEducation = education => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     // Get states from the store
     const firestore = getFirestore();
     const userId = getState().firebase.auth.uid;
-    employment = cleanData(employment);
+    education = cleanData(education);
 
     // Make async db call then dispatch state
     firestore
       .collection("users")
       .doc(userId)
-      .collection("employments")
+      .collection("educations")
       .add({
-        ...employment,
+        ...education,
         userId: userId,
         createdAt: new Date()
       })
       .then(() => {
-        dispatch({ type: "CREATE_EMPLOYMENT", employment });
+        dispatch({ type: "CREATE_EDUCATION", education });
       })
       .catch(err => {
-        dispatch({ type: "CREATE_EMPLOYMENT_ERROR", err });
+        dispatch({ type: "CREATE_EDUCATION_ERROR", err });
       });
   };
 };
 
-export const deleteEmployment = employmentId => {
+export const deleteEducation = educationId => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     // Get states from the store
     const firestore = getFirestore();
@@ -36,41 +36,44 @@ export const deleteEmployment = employmentId => {
     firestore
       .collection("users")
       .doc(userId)
-      .collection("employments")
-      .doc(employmentId)
+      .collection("educations")
+      .doc(educationId)
       .delete()
       .then(() => {
-        dispatch({ type: "DELETE_EMPLOYMENT", employmentId });
+        dispatch({ type: "DELETE_EDUCATION", educationId });
       })
       .catch(err => {
-        dispatch({ type: "DELETE_EMPLOYMENT_ERROR", err });
+        dispatch({ type: "DELETE_EDUCATION_ERROR", err });
       });
   };
 };
 
-export const editEmployment = (employment) => {
+export const editEducation = (education) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     // Get states from the store
     const firestore = getFirestore();
+    const profile = getState().firebase.profile;
     const userId = getState().firebase.auth.uid;
-    employment = cleanData(employment);
+    education = cleanData(education);
 
     // Make async db call then dispatch state
     firestore
       .collection("users")
       .doc(userId)
-      .collection("employments")
-      .doc(employment.id)
+      .collection("educations")
+      .doc(education.id)
       .set({
-        ...employment,
+        ...education,
+        firstName: profile.firstName,
+        lastName: profile.lastName,
         userId: userId,
         modifiedAt: new Date()
       })
       .then(() => {
-        dispatch({ type: "EDIT_EMPLOYMENT", employment });
+        dispatch({ type: "EDIT_EDUCATION", education });
       })
       .catch(err => {
-        dispatch({ type: "EDIT_EMPLOYMENT_ERROR", err });
+        dispatch({ type: "EDIT_EDUCATION_ERROR", err });
       });
   };
 };

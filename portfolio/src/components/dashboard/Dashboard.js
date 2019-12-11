@@ -3,10 +3,13 @@ import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
 import { compose } from "redux";
 import { Redirect } from "react-router-dom";
+import M from "materialize-css";
 import Notifications from "./Notifications";
 import ManageEmployments from "../employments/ManageEmployments";
 import ManageProjects from "../projects/ManageProjects";
-import M from "materialize-css";
+import ManageEducations from "../educations/ManageEducations";
+import ManageCustoms from "../custom/ManageCustoms";
+import PublishSettings from "./PublishSettings";
 
 class Dashboard extends Component {
   state = {
@@ -29,16 +32,20 @@ class Dashboard extends Component {
   render() {
     const { auth, notifications } = this.props;
     if (!auth.uid) return <Redirect to="/signin" />;
+    console.log("RENDERED");
 
     return (
       <div className="dashboard">
         <div className="row">
-          <div className="col m6 s12">
+          <div className="col offset-m1 m5 s12">
+            <ManageEducations onCloseModal={this.handleCloseModal} />
             <ManageEmployments onCloseModal={this.handleCloseModal} />
             <ManageProjects onCloseModal={this.handleCloseModal} />
+            <ManageCustoms onCloseModal={this.handleCloseModal} />
           </div>
 
-          <div className="col m6 s12">
+          <div className="col offset-m1 m3 s12">
+            <PublishSettings />
           </div>
         </div>
       </div>

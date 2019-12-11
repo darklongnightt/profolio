@@ -4,7 +4,6 @@ export const createProject = project => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     // Get states from the store
     const firestore = getFirestore();
-    const profile = getState().firebase.profile;
     const userId = getState().firebase.auth.uid;
     project = cleanData(project);
 
@@ -15,8 +14,6 @@ export const createProject = project => {
       .collection("projects")
       .add({
         ...project,
-        firstName: profile.firstName,
-        lastName: profile.lastName,
         userId: userId,
         createdAt: new Date()
       })
@@ -55,7 +52,6 @@ export const editProject = (project) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     // Get states from the store
     const firestore = getFirestore();
-    const profile = getState().firebase.profile;
     const userId = getState().firebase.auth.uid;
     project = cleanData(project);
 
@@ -67,8 +63,6 @@ export const editProject = (project) => {
       .doc(project.id)
       .set({
         ...project,
-        firstName: profile.firstName,
-        lastName: profile.lastName,
         userId: userId,
         modifiedAt: new Date()
       })

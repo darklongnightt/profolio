@@ -38,3 +38,91 @@
 [info] i  functions[userJoined]: function ignored because the firebaseauth.googleapis.com emulator does not exist or is not running.
 [debug] [2019-12-09T09:30:33.571Z] [worker-~diagnostic~-068e3613-9877-49a8-9b26-80607065bc9f]: exited
 [debug] [2019-12-09T09:30:33.571Z] [worker-~diagnostic~-068e3613-9877-49a8-9b26-80607065bc9f]: FINISHED
+[debug] [2019-12-10T03:48:02.175Z] ----------------------------------------------------------------------
+[debug] [2019-12-10T03:48:02.178Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Xavier\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve -p 4000
+[debug] [2019-12-10T03:48:02.178Z] CLI Version:   7.9.0
+[debug] [2019-12-10T03:48:02.178Z] Platform:      win32
+[debug] [2019-12-10T03:48:02.178Z] Node Version:  v10.16.0
+[debug] [2019-12-10T03:48:02.179Z] Time:          Tue Dec 10 2019 11:48:02 GMT+0800 (Singapore Standard Time)
+[debug] [2019-12-10T03:48:02.180Z] ----------------------------------------------------------------------
+[debug] [2019-12-10T03:48:02.180Z] 
+[debug] [2019-12-10T03:48:02.198Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-12-10T03:48:02.199Z] > authorizing via signed-in user
+[debug] [2019-12-10T03:48:02.199Z] [iam] checking project profolio-craft for permissions ["firebase.projects.get"]
+[debug] [2019-12-10T03:48:02.201Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2019-12-10T03:48:02.202Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2019-12-10T03:48:02.338Z] <<< HTTP RESPONSE 200
+[debug] [2019-12-10T03:48:02.592Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/profolio-craft:testIamPermissions  
+
+[debug] [2019-12-10T03:48:03.773Z] <<< HTTP RESPONSE 200
+[debug] [2019-12-10T03:48:03.775Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/profolio-craft  
+ 
+[debug] [2019-12-10T03:48:04.119Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\Xavier\Downloads\Website Projects\Portfolio\portfolio'...
+[info] 
+[debug] [2019-12-10T03:48:04.125Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/profolio-craft/webApps/-/config  
+ 
+[debug] [2019-12-10T03:48:05.356Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: dist
+[info] +  hosting: Local server: http://localhost:4000
+[warn] !  Your requested "node" version "8" doesn't match your global version "10"
+[info] +  functions: Emulator started at http://localhost:4001
+[info] i  functions: Watching "C:\Users\Xavier\Downloads\Website Projects\Portfolio\portfolio\functions" for Cloud Functions...
+[debug] [2019-12-10T03:48:06.699Z] [worker-~diagnostic~-f45adeb9-84ab-4dd7-ae1b-ebae1d31f5e6]: Assigning socketPath: \\?\pipe\C:\Users\Xavier\Downloads\Website Projects\Portfolio\portfolio\functions\5056
+[debug] [2019-12-10T03:48:06.700Z] [worker-~diagnostic~-f45adeb9-84ab-4dd7-ae1b-ebae1d31f5e6]: BUSY
+[debug] [2019-12-10T03:48:07.469Z] [runtime-status] [5056] Functions runtime initialized. {"cwd":"C:\\Users\\Xavier\\Downloads\\Website Projects\\Portfolio\\portfolio\\functions","node_version":"10.16.0"}
+[debug] [2019-12-10T03:48:07.471Z] [runtime-status] [5056] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2019-12-10T03:48:07.479Z] [runtime-status] [5056] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.8.0","resolution":"C:\\Users\\Xavier\\Downloads\\Website Projects\\Portfolio\\portfolio\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-12-10T03:48:07.498Z] [runtime-status] [5056] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\Xavier\\Downloads\\Website Projects\\Portfolio\\portfolio\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-12-10T03:48:07.499Z] [runtime-status] [5056] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\Xavier\\Downloads\\Website Projects\\Portfolio\\portfolio\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-12-10T03:48:08.650Z] Unsupported trigger: {"eventTrigger":{"resource":"projects/profolio-craft","eventType":"providers/firebase.auth/eventTypes/user.create","service":"firebaseauth.googleapis.com"},"name":"userJoined","entryPoint":"userJoined"}
+[info] i  functions[projectCreated]: function ignored because the firestore emulator does not exist or is not running.
+[info] i  functions[userJoined]: function ignored because the firebaseauth.googleapis.com emulator does not exist or is not running.
+[debug] [2019-12-10T03:48:08.669Z] [worker-~diagnostic~-f45adeb9-84ab-4dd7-ae1b-ebae1d31f5e6]: exited
+[debug] [2019-12-10T03:48:08.669Z] [worker-~diagnostic~-f45adeb9-84ab-4dd7-ae1b-ebae1d31f5e6]: FINISHED
+[debug] [2019-12-10T15:55:51.052Z] ----------------------------------------------------------------------
+[debug] [2019-12-10T15:55:51.055Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Xavier\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve -p 4000
+[debug] [2019-12-10T15:55:51.055Z] CLI Version:   7.9.0
+[debug] [2019-12-10T15:55:51.055Z] Platform:      win32
+[debug] [2019-12-10T15:55:51.055Z] Node Version:  v10.16.0
+[debug] [2019-12-10T15:55:51.056Z] Time:          Tue Dec 10 2019 23:55:51 GMT+0800 (Singapore Standard Time)
+[debug] [2019-12-10T15:55:51.057Z] ----------------------------------------------------------------------
+[debug] [2019-12-10T15:55:51.057Z] 
+[debug] [2019-12-10T15:55:51.073Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-12-10T15:55:51.074Z] > authorizing via signed-in user
+[debug] [2019-12-10T15:55:51.074Z] [iam] checking project profolio-craft for permissions ["firebase.projects.get"]
+[debug] [2019-12-10T15:55:51.077Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2019-12-10T15:55:51.077Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2019-12-10T15:55:51.190Z] <<< HTTP RESPONSE 200
+[debug] [2019-12-10T15:55:51.252Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/profolio-craft:testIamPermissions  
+
+[debug] [2019-12-10T15:55:52.413Z] <<< HTTP RESPONSE 200
+[debug] [2019-12-10T15:55:52.414Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/profolio-craft  
+ 
+[debug] [2019-12-10T15:55:52.741Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\Xavier\Downloads\Website Projects\Portfolio\portfolio'...
+[info] 
+[debug] [2019-12-10T15:55:52.747Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/profolio-craft/webApps/-/config  
+ 
+[debug] [2019-12-10T15:55:53.730Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: dist
+[info] +  hosting: Local server: http://localhost:4000
+[warn] !  Your requested "node" version "8" doesn't match your global version "10"
+[info] +  functions: Emulator started at http://localhost:4001
+[info] i  functions: Watching "C:\Users\Xavier\Downloads\Website Projects\Portfolio\portfolio\functions" for Cloud Functions...
+[debug] [2019-12-10T15:55:55.297Z] [worker-~diagnostic~-7d6494a5-903b-4047-b0db-4338f6198dde]: Assigning socketPath: \\?\pipe\C:\Users\Xavier\Downloads\Website Projects\Portfolio\portfolio\functions\18120
+[debug] [2019-12-10T15:55:55.297Z] [worker-~diagnostic~-7d6494a5-903b-4047-b0db-4338f6198dde]: BUSY
+[debug] [2019-12-10T15:55:56.102Z] [runtime-status] [18120] Functions runtime initialized. {"cwd":"C:\\Users\\Xavier\\Downloads\\Website Projects\\Portfolio\\portfolio\\functions","node_version":"10.16.0"}
+[debug] [2019-12-10T15:55:56.104Z] [runtime-status] [18120] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2019-12-10T15:55:56.112Z] [runtime-status] [18120] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.8.0","resolution":"C:\\Users\\Xavier\\Downloads\\Website Projects\\Portfolio\\portfolio\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-12-10T15:55:56.116Z] [runtime-status] [18120] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\Xavier\\Downloads\\Website Projects\\Portfolio\\portfolio\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-12-10T15:55:56.118Z] [runtime-status] [18120] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\Xavier\\Downloads\\Website Projects\\Portfolio\\portfolio\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-12-10T15:55:56.207Z] Unsupported trigger: {"eventTrigger":{"resource":"projects/profolio-craft","eventType":"providers/firebase.auth/eventTypes/user.create","service":"firebaseauth.googleapis.com"},"name":"userJoined","entryPoint":"userJoined"}
+[info] i  functions[projectCreated]: function ignored because the firestore emulator does not exist or is not running.
+[info] i  functions[userJoined]: function ignored because the firebaseauth.googleapis.com emulator does not exist or is not running.
+[debug] [2019-12-10T15:55:56.231Z] [worker-~diagnostic~-7d6494a5-903b-4047-b0db-4338f6198dde]: exited
+[debug] [2019-12-10T15:55:56.231Z] [worker-~diagnostic~-7d6494a5-903b-4047-b0db-4338f6198dde]: FINISHED
