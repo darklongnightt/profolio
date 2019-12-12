@@ -2,23 +2,35 @@ rules_version = '2';
 
 service cloud.firestore {
   match /databases/{database}/documents {
-    
-    match /projects/{project} {
-      // Allow anyone who is signed in to read/write
-      allow read
-      allow create, write: if request.auth.uid == request.resource.data.userId
-    }
 
     match /users/{userId} {
       // Allow anyone who is signed in to write to own details
-      allow create
-      allow read: if request.auth.uid != null
+      allow create, read
       allow write: if request.auth.uid == userId
     }
     
     match /users/{userId}/projects/{project} {
-      // Users can access their own projects
-      allow read, write: if request.auth.uid == userId
+      // Users can write their own projects
+      allow read
+      allow write: if request.auth.uid == userId
+    }
+    
+    match /users/{userId}/employments/{employment} {
+      // Users can write their own projects
+      allow read
+      allow write: if request.auth.uid == userId
+    }
+    
+    match /users/{userId}/educations/{education} {
+      // Users can write their own educations
+      allow read
+      allow write: if request.auth.uid == userId
+    }
+    
+    match /users/{userId}/customs/{custom} {
+      // Users can write their own custom sections
+      allow read
+      allow write: if request.auth.uid == userId
     }
     
     match /notifications/{project} {

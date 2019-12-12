@@ -66,3 +66,6 @@ node_modules/
 
 # Deployment build files
 build
+.build 
+dist
+.dist
