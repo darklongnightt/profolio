@@ -27,7 +27,7 @@ const SignedInLinks = props => {
         <li>
           <NavLink to={`/publishings/${auth.uid}`}>
             <i className="fa fa-globe nav-icon" aria-hidden="true"></i>
-            Published Profile
+            Public Profile
           </NavLink>
         </li>
 

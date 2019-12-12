@@ -5,7 +5,6 @@ import UnavailableError from "./UnavailableError";
 const ProjectSection = props => {
   const { projects, active } = props;
   const colors = ["#e57373", "#64b5f6 ", "#66bb6a", "#fbc02d", "1de9b6"];
-  const date = <i className="material-icons">code</i>;
 
   if (active && projects.length > 0) {
     return (
@@ -15,6 +14,12 @@ const ProjectSection = props => {
           {projects &&
             projects.map(project => {
               var color = colors[Math.floor(Math.random() * colors.length)];
+              const date = (
+                <div>
+                  <i class="fa fa-terminal nav-icon" aria-hidden="true"></i>
+                  {project.skills}
+                </div>
+              );
 
               return (
                 <TimelineItem
@@ -23,6 +28,7 @@ const ProjectSection = props => {
                   dateInnerStyle={{ background: `${color}`, color: "white" }}
                 >
                   <h3>{project.title}</h3>
+                  <h4>{project.skills}</h4>
                   <p className="grey-text">{project.content}</p>
                 </TimelineItem>
               );

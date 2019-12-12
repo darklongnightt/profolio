@@ -21,7 +21,7 @@ const ViewProject = props => {
       </a>
 
       <div className="large-text">{project.title}</div>
-
+      <div className="medium-text">{project.skills}</div>
       <br />
       <div className="divider"></div>
 

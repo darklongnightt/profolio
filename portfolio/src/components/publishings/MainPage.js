@@ -231,14 +231,14 @@ export default compose(
         collection: "users",
         doc: props.match.params.id,
         subcollections: [{ collection: "educations" }],
-        orderBy: ["createdAt", "desc"],
+        orderBy: ["fromDate", "desc"],
         storeAs: "educations"
       },
       {
         collection: "users",
         doc: props.match.params.id,
         subcollections: [{ collection: "employments" }],
-        orderBy: ["createdAt", "desc"],
+        orderBy: ["fromDate", "desc"],
         storeAs: "employments"
       },
       {

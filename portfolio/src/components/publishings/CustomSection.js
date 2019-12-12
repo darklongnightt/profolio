@@ -5,7 +5,11 @@ import UnavailableError from "./UnavailableError";
 const CustomSection = props => {
   const { customs, active } = props;
   const colors = ["#e57373", "#64b5f6 ", "#66bb6a", "#fbc02d", "1de9b6"];
-  const date = <i className="fa fa-trophy" aria-hidden="true"></i>;
+  const date = (
+    <div className="center">
+      <i className="fa fa-trophy" aria-hidden="true"></i>
+    </div>
+  );
 
   if (active && customs.length > 0) {
     return (

@@ -4,6 +4,7 @@ class EditProject extends Component {
   state = {
     title: "",
     content: "",
+    skills: "",
     error: "",
     id: ""
   };
@@ -16,6 +17,7 @@ class EditProject extends Component {
     this.state = {
       title: project.title || "",
       content: project.content || "",
+      skills: project.skills || "",
       id: project.id || "",
       createdAt: project.createdAt
     };
@@ -30,10 +32,14 @@ class EditProject extends Component {
   handleSubmit = e => {
     e.preventDefault();
 
-    if (this.state.title === "" || this.state.content === "") {
+    if (
+      this.state.title === "" ||
+      this.state.skills === "" ||
+      this.state.content === ""
+    ) {
       this.setState({
         ...this.state,
-        error: "Project title and content are required."
+        error: "All project fields are required."
       });
     } else {
       this.props.onEdit(this.state);
@@ -63,7 +69,7 @@ class EditProject extends Component {
           </a>
 
           <h5>Edit Project</h5>
-          
+
           <br />
           <form onSubmit={this.handleSubmit} className="white">
             <div className="input-field">
@@ -80,9 +86,22 @@ class EditProject extends Component {
             </div>
 
             <div className="input-field">
+              <i className="material-icons prefix">developer_board</i>
+              <label className="active" htmlFor="skills">
+                Skills Involved
+              </label>
+              <textarea
+                id="skills"
+                className="materialize-textarea"
+                onChange={this.handleChange}
+                value={this.state.skills}
+              ></textarea>
+            </div>
+
+            <div className="input-field">
               <i className="material-icons prefix">book</i>
               <label className="active" htmlFor="content">
-                Project Content
+                Description
               </label>
               <textarea
                 id="content"

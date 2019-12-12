@@ -11,8 +11,8 @@ const Profile = props => {
         <div className="dashboard-profile black-text">
           <img
             className="circle wrap"
-            width="200px"
-            height="200px"
+            width="100px"
+            height="100px"
             src={profile.photoUrl ? profile.photoUrl : Placeholder}
             alt="Profile"
           ></img>

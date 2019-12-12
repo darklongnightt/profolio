@@ -3,6 +3,7 @@ import React, { Component } from "react";
 class CreateProject extends Component {
   state = {
     title: "",
+    skills: "",
     content: "",
     error: ""
   };
@@ -17,16 +18,17 @@ class CreateProject extends Component {
     e.preventDefault();
 
     // Error checking before dispatching action and close modal
-    if (this.state.title === "" || this.state.content === "") {
+    if (this.state.title === "" || this.state.skills === "" || this.state.content === "") {
       this.setState({
         ...this.state,
-        error: "Project title and content are required."
+        error: "All project fields are required."
       });
     } else {
       this.props.onCreate(this.state);
       this.setState({
         title: "",
         content: "",
+        skills: "",
         error: ""
       });
     }
@@ -50,8 +52,19 @@ class CreateProject extends Component {
           </div>
 
           <div className="input-field">
+            <i className="material-icons prefix">developer_board</i>
+            <label htmlFor="skills">Skills Involved</label>
+            <textarea
+              id="skills"
+              className="materialize-textarea"
+              onChange={this.handleChange}
+              value={this.state.skills}
+            ></textarea>
+          </div>
+
+          <div className="input-field">
             <i className="material-icons prefix">book</i>
-            <label htmlFor="content">Project Content</label>
+            <label htmlFor="content">Description</label>
             <textarea
               id="content"
               className="materialize-textarea"
