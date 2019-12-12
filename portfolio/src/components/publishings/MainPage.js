@@ -85,51 +85,101 @@ class MainPage extends Component {
           <div className="section white">
             <div className="row">
               <div className="col offset-m1 offset-s1 m2 s2 ">
-                <a
-                  href="#!"
-                  className="btn-floating btn-large waves-effect waves-light yellow darken-2 parallax-top"
-                  onClick={() => this.handleClick("profile")}
-                >
-                  <i className="material-icons">person</i>
-                </a>
-              </div>
-              <div className="col m2 s2 center">
-                <button
-                  className="btn-floating btn-large waves-effect waves-light red lighten-2 parallax-top"
-                  onClick={() => this.handleClick("educations")}
-                >
-                  <i className="material-icons">school</i>
-                </button>
-              </div>
-
-              <div className="col m2 s2 center">
-                <a
-                  href="#!"
-                  className="btn-floating btn-large waves-effect waves-light blue lighten-1 parallax-top"
-                  onClick={() => this.handleClick("employments")}
-                >
-                  <i className="material-icons">business_center</i>
-                </a>
+                {this.state.currentComponent === "profile" ? (
+                  <a
+                    href="#!"
+                    className="btn-floating btn-large waves-effect waves-light yellow darken-2 parallax-top pulse"
+                    onClick={() => this.handleClick("profile")}
+                  >
+                    <i className="material-icons">person</i>
+                  </a>
+                ) : (
+                  <a
+                    href="#!"
+                    className="btn-floating btn-large waves-effect waves-light yellow darken-2 parallax-top"
+                    onClick={() => this.handleClick("profile")}
+                  >
+                    <i className="material-icons">person</i>
+                  </a>
+                )}
               </div>
 
               <div className="col m2 s2 center">
-                <a
-                  href="#!"
-                  className="btn-floating btn-large waves-effect waves-light green lighten-1 parallax-top"
-                  onClick={() => this.handleClick("projects")}
-                >
-                  <i className="material-icons">developer_mode</i>
-                </a>
+                {this.state.currentComponent === "educations" ? (
+                  <button
+                    className="btn-floating btn-large waves-effect waves-light red lighten-2 parallax-top pulse"
+                    onClick={() => this.handleClick("educations")}
+                  >
+                    <i className="material-icons">school</i>
+                  </button>
+                ) : (
+                  <button
+                    className="btn-floating btn-large waves-effect waves-light red lighten-2 parallax-top"
+                    onClick={() => this.handleClick("educations")}
+                  >
+                    <i className="material-icons">school</i>
+                  </button>
+                )}
               </div>
 
               <div className="col m2 s2 center">
-                <a
-                  href="#!"
-                  className="btn-floating btn-large waves-effect waves-light yellow darken-2 parallax-top"
-                  onClick={() => this.handleClick("customs")}
-                >
-                  <i className="fa fa-trophy" aria-hidden="true"></i>
-                </a>
+                {this.state.currentComponent === "employments" ? (
+                  <a
+                    href="#!"
+                    className="btn-floating btn-large waves-effect waves-light blue lighten-1 parallax-top pulse"
+                    onClick={() => this.handleClick("employments")}
+                  >
+                    <i className="material-icons">business_center</i>
+                  </a>
+                ) : (
+                  <a
+                    href="#!"
+                    className="btn-floating btn-large waves-effect waves-light blue lighten-1 parallax-top"
+                    onClick={() => this.handleClick("employments")}
+                  >
+                    <i className="material-icons">business_center</i>
+                  </a>
+                )}
+              </div>
+
+              <div className="col m2 s2 center">
+                {this.state.currentComponent === "projects" ? (
+                  <a
+                    href="#!"
+                    className="btn-floating btn-large waves-effect waves-light green lighten-1 parallax-top pulse"
+                    onClick={() => this.handleClick("projects")}
+                  >
+                    <i className="material-icons">developer_mode</i>
+                  </a>
+                ) : (
+                  <a
+                    href="#!"
+                    className="btn-floating btn-large waves-effect waves-light green lighten-1 parallax-top"
+                    onClick={() => this.handleClick("projects")}
+                  >
+                    <i className="material-icons">developer_mode</i>
+                  </a>
+                )}
+              </div>
+
+              <div className="col m2 s2 center">
+                {this.state.currentComponent === "customs" ? (
+                  <a
+                    href="#!"
+                    className="btn-floating btn-large waves-effect waves-light yellow darken-2 parallax-top pulse"
+                    onClick={() => this.handleClick("customs")}
+                  >
+                    <i className="fa fa-trophy" aria-hidden="true"></i>
+                  </a>
+                ) : (
+                  <a
+                    href="#!"
+                    className="btn-floating btn-large waves-effect waves-light yellow darken-2 parallax-top"
+                    onClick={() => this.handleClick("customs")}
+                  >
+                    <i className="fa fa-trophy" aria-hidden="true"></i>
+                  </a>
+                )}
               </div>
             </div>
 
