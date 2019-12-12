@@ -11,6 +11,13 @@ const SignedInLinks = props => {
       <ul className="right">
         <li>
           <NavLink to={`/publishings/${auth.uid}`}>
+            <i className="fa fa-bell nav-icon" aria-hidden="true"></i>
+            Notifications
+          </NavLink>
+        </li>
+
+        <li>
+          <NavLink to={`/publishings/${auth.uid}`}>
             <i className="fa fa-globe nav-icon" aria-hidden="true"></i>
             My Publishing
           </NavLink>

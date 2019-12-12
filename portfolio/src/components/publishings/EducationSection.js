@@ -1,7 +1,7 @@
 import React from "react";
 import moment from "moment";
-import error from "../../img/error.png";
 import { Timeline, TimelineItem } from "vertical-timeline-component-for-react";
+import UnavailableError from "./UnavailableError";
 
 const EducationSection = props => {
   const { educations, active } = props;
@@ -39,7 +39,7 @@ const EducationSection = props => {
       </div>
     );
   } else {
-    return <img src={error} className="auth-form" />;
+    return <UnavailableError />;
   }
 };
 

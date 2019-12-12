@@ -10,6 +10,7 @@ import ManageProjects from "../projects/ManageProjects";
 import ManageEducations from "../educations/ManageEducations";
 import ManageCustoms from "../custom/ManageCustoms";
 import PublishSettings from "./PublishSettings";
+import Profile from "./Profile";
 
 class Dashboard extends Component {
   state = {
@@ -44,7 +45,8 @@ class Dashboard extends Component {
               <ManageCustoms onCloseModal={this.handleCloseModal} />
             </div>
 
-            <div className="col offset-m1 m3 s12">
+            <div className="col offset-m1 m4 s12">
+              <Profile profile={profile} />
               <PublishSettings profile={profile} />
             </div>
           </div>

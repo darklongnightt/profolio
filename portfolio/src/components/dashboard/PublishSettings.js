@@ -91,7 +91,7 @@ class PublishSettings extends Component {
 
             <div className="switch">
               <span className="blue-text brand-text bold publish-section">
-                Custom Sections
+                Custom Section
               </span>
 
               <label>

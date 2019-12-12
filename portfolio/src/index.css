@@ -177,9 +177,41 @@ label.active {
 }
 
 .parallax-top {
-  bottom: 300px;
+  bottom: 240px;
 }
 
 .parallax-btm {
-  top: 300px;
+  position: relative;
+  top: 170px;
+  z-index: 1;
+}
+
+.wrap {
+  float: left;
+  margin-right: 25px;
+}
+
+.ptop {
+  height: 350px !important;
+}
+
+.pbtm {
+  height: 200px !important;
+}
+
+.p-content {
+  padding-bottom: 5px;
+}
+
+.icon-space {
+  margin-right: 15px;
+}
+
+.dashboard-profile {
+  border-style: solid;
+  border-radius: 15px !important;
+  border-color: grey;
+  border-width: 2px;
+  padding: 25px;
+  margin-top: 25px;
 }
