@@ -9,7 +9,7 @@ const SignedInSidenav = props => {
   const { profile, auth } = props;
   return (
     <React.Fragment>
-      <a href="#" data-target="signedIn" className="sidenav-trigger">
+      <a href="#!" data-target="signedIn" className="sidenav-trigger">
         <i className="material-icons">menu</i>
       </a>
 
@@ -17,10 +17,11 @@ const SignedInSidenav = props => {
         <li>
           <div className="user-view">
             <div className="background">
-              <img src={Background} />
+              <img src={Background} alt="" />
             </div>
             <NavLink to="/manage_profile" className="waves-effect">
               <img
+                alt=""
                 className="circle"
                 src={profile.photoUrl ? profile.photoUrl : Placeholder}
               />

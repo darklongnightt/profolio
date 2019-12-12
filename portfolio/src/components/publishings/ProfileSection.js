@@ -1,4 +1,5 @@
 import React from "react";
+import Placeholder from "../../img/profile_placeholder.png";
 
 const ProfileSection = props => {
   const { profile } = props;
@@ -6,14 +7,13 @@ const ProfileSection = props => {
   if (profile) {
     return (
       <div>
-        {profile.photoUrl && (
-          <img
-            className="circle wrap"
-            width="200px"
-            height="200px"
-            src={profile.photoUrl}
-          ></img>
-        )}
+        <img
+          className="circle wrap"
+          width="200px"
+          height="200px"
+          src={profile.photoUrl ? profile.photoUrl : Placeholder}
+          alt="Profile"
+        ></img>
 
         <h5>{profile.firstName + " " + profile.lastName}</h5>
 

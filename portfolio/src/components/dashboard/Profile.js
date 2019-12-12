@@ -1,4 +1,5 @@
 import React from "react";
+import Placeholder from "../../img/profile_placeholder.png";
 import { Link } from "react-router-dom";
 
 const Profile = props => {
@@ -8,14 +9,13 @@ const Profile = props => {
     return (
       <Link to="/manage_profile">
         <div className="dashboard-profile black-text">
-          {profile.photoUrl && (
-            <img
-              className="circle wrap"
-              width="150px"
-              height="150px"
-              src={profile.photoUrl}
-            ></img>
-          )}
+          <img
+            className="circle wrap"
+            width="200px"
+            height="200px"
+            src={profile.photoUrl ? profile.photoUrl : Placeholder}
+            alt="Profile"
+          ></img>
 
           <h5>{profile.firstName + " " + profile.lastName}</h5>
 

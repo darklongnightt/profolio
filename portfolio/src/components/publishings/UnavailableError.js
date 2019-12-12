@@ -6,7 +6,7 @@ const UnavailableError = () => {
     <div className="center brand-text grey-text">
       <h5>This is section is currently unavailable!</h5>
       <br />
-      <img src={error} className="modal-container" />
+      <img src={error} className="modal-container" alt="" />
     </div>
   );
 };

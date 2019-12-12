@@ -8,7 +8,7 @@ import Notifications from "../dashboard/Notifications";
 const SignedInLinks = props => {
   const { profile, auth, notifications } = props;
   var elems = document.querySelectorAll(".dropdown-trigger");
-  var instances = M.Dropdown.init(elems, {});
+  M.Dropdown.init(elems, {});
 
   return (
     <div>

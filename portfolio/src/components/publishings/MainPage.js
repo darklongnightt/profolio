@@ -70,14 +70,15 @@ class MainPage extends Component {
         case "profile":
           component = <ProfileSection profile={user} />;
           break;
-        case "default":
+
+        default:
       }
 
       return (
         <React.Fragment>
           <div className="parallax-container ptop">
             <div className="parallax">
-              <img src={parallax} />
+              <img src={parallax} alt="" />
             </div>
           </div>
 
@@ -85,6 +86,7 @@ class MainPage extends Component {
             <div className="row">
               <div className="col offset-m1 offset-s1 m2 s2 ">
                 <a
+                  href="#!"
                   className="btn-floating btn-large waves-effect waves-light yellow darken-2 parallax-top"
                   onClick={() => this.handleClick("profile")}
                 >
@@ -102,6 +104,7 @@ class MainPage extends Component {
 
               <div className="col m2 s2 center">
                 <a
+                  href="#!"
                   className="btn-floating btn-large waves-effect waves-light blue lighten-1 parallax-top"
                   onClick={() => this.handleClick("employments")}
                 >
@@ -111,6 +114,7 @@ class MainPage extends Component {
 
               <div className="col m2 s2 center">
                 <a
+                  href="#!"
                   className="btn-floating btn-large waves-effect waves-light green lighten-1 parallax-top"
                   onClick={() => this.handleClick("projects")}
                 >
@@ -120,6 +124,7 @@ class MainPage extends Component {
 
               <div className="col m2 s2 center">
                 <a
+                  href="#!"
                   className="btn-floating btn-large waves-effect waves-light yellow darken-2 parallax-top"
                   onClick={() => this.handleClick("customs")}
                 >
@@ -158,7 +163,7 @@ class MainPage extends Component {
 
           <div className="parallax-container pbtm">
             <div className="parallax">
-              <img src={parallax} />
+              <img src={parallax} alt="" />
             </div>
           </div>
         </React.Fragment>
@@ -166,9 +171,9 @@ class MainPage extends Component {
     } else {
       return (
         <React.Fragment>
-          <div className="parallax-container">
+          <div className="parallax-container ptop">
             <div className="parallax">
-              <img src={parallax} />
+              <img src={parallax} alt="" />
             </div>
           </div>
 
@@ -189,9 +194,9 @@ class MainPage extends Component {
             <div className="p-content"></div>
           </div>
 
-          <div className="parallax-container">
+          <div className="parallax-container pbtm">
             <div className="parallax">
-              <img src={parallax} />
+              <img src={parallax} alt="" />
             </div>
           </div>
         </React.Fragment>

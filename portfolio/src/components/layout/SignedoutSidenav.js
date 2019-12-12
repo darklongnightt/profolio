@@ -5,11 +5,10 @@ import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { signOut } from "../../store/actions/authActions";
 
-const SignedInSidenav = props => {
-  const { profile, auth } = props;
+const SignedInSidenav = () => {
   return (
     <React.Fragment>
-      <a href="#" data-target="signedOut" className="sidenav-trigger">
+      <a href="#!" data-target="signedOut" className="sidenav-trigger">
         <i className="material-icons">menu</i>
       </a>
 
@@ -17,28 +16,21 @@ const SignedInSidenav = props => {
         <li>
           <div className="user-view">
             <div className="background">
-              <img src={Background} />
+              <img src={Background} alt=""/>
             </div>
             <NavLink to="/register" className="waves-effect">
-              <img
-                className="circle"
-                src={Placeholder}
-              />
+              <img className="circle" src={Placeholder} alt="" />
 
-              <span className="white-text name">
-                Welcome,
-              </span>
+              <span className="white-text name">Welcome,</span>
 
-              <span className="white-text email">
-                New User
-              </span>
+              <span className="white-text email">New User</span>
             </NavLink>
           </div>
         </li>
 
         <li>
           <NavLink to="/register" className="waves-effect">
-          <i className="material-icons">person_add</i>
+            <i className="material-icons">person_add</i>
             Register
           </NavLink>
         </li>
@@ -47,7 +39,7 @@ const SignedInSidenav = props => {
 
         <li>
           <NavLink to="/signin" className="waves-effect">
-          <i className="material-icons">input</i>
+            <i className="material-icons">input</i>
             Sign In
           </NavLink>
         </li>

@@ -11,7 +11,7 @@ import M from "materialize-css";
 
 const Navbar = props => {
   var elems = document.querySelectorAll(".sidenav");
-  var instances = M.Sidenav.init(elems, {});
+  M.Sidenav.init(elems, {});
 
   const { auth, profile, notifications } = props;
   const links = auth.uid ? (

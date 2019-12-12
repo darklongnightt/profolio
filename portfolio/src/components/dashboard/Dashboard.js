@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { firestoreConnect } from "react-redux-firebase";
-import { compose } from "redux";
 import { Redirect } from "react-router-dom";
 import M from "materialize-css";
 import ManageEmployments from "../employments/ManageEmployments";
@@ -56,23 +54,8 @@ class Dashboard extends Component {
 const mapStateToProps = state => {
   return {
     profile: state.firebase.profile,
-    projects: state.firestore.ordered.projects,
     auth: state.firebase.auth
   };
 };
 
-export default compose(
-  connect(mapStateToProps),
-  firestoreConnect(props => {
-    return [
-      {
-        collection: "users",
-        doc: props.auth.uid,
-        subcollections: [{ collection: "projects" }],
-        orderBy: ["createdAt", "desc"],
-        storeAs: "projects"
-      },
-      { collection: "notifications", limit: 6, orderBy: ["time", "desc"] }
-    ];
-  })
-)(Dashboard);
+export default connect(mapStateToProps)(Dashboard);
