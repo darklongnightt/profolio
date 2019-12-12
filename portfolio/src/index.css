@@ -215,3 +215,12 @@ label.active {
   padding: 25px;
   margin-top: 25px;
 }
+
+.dropdown-content {
+  width: 250px !important;
+  top: 65px !important;
+}
+
+.notification-item {
+  padding: 10px;
+}

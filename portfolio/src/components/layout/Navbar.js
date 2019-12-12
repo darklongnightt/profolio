@@ -1,13 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { firestoreConnect } from "react-redux-firebase";
+import { compose } from "redux";
 import SignedInLinks from "./SignedInLinks";
 import SignedOutLinks from "./SignedOutLinks";
 
 const Navbar = props => {
-  const { auth, profile } = props;
+  const { auth, profile, notifications } = props;
   const links = auth.uid ? (
-    <SignedInLinks profile={profile} auth={auth} />
+    <SignedInLinks profile={profile} auth={auth} notifications = {notifications} />
   ) : (
     <SignedOutLinks />
   );
@@ -30,8 +32,16 @@ const Navbar = props => {
 const mapStateToProps = state => {
   return {
     auth: state.firebase.auth,
-    profile: state.firebase.profile
+    profile: state.firebase.profile,
+    notifications: state.firestore.ordered.notifications
   };
 };
 
-export default connect(mapStateToProps)(Navbar);
+export default compose(
+  connect(mapStateToProps),
+  firestoreConnect(props => {
+    return [
+      { collection: "notifications", limit: 6, orderBy: ["time", "desc"] }
+    ];
+  })
+)(Navbar);

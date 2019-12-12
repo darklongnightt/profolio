@@ -4,7 +4,6 @@ import { firestoreConnect } from "react-redux-firebase";
 import { compose } from "redux";
 import { Redirect } from "react-router-dom";
 import M from "materialize-css";
-import Notifications from "./Notifications";
 import ManageEmployments from "../employments/ManageEmployments";
 import ManageProjects from "../projects/ManageProjects";
 import ManageEducations from "../educations/ManageEducations";
@@ -31,7 +30,7 @@ class Dashboard extends Component {
   };
 
   render() {
-    const { auth, notifications, profile } = this.props;
+    const { auth, profile } = this.props;
     if (!auth.uid) return <Redirect to="/signin" />;
 
     if (profile.isLoaded) {
@@ -78,8 +77,7 @@ const mapStateToProps = state => {
   return {
     profile: state.firebase.profile,
     projects: state.firestore.ordered.projects,
-    auth: state.firebase.auth,
-    notifications: state.firestore.ordered.notifications
+    auth: state.firebase.auth
   };
 };
 

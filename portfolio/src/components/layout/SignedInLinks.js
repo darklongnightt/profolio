@@ -1,20 +1,28 @@
 import React from "react";
+import M from "materialize-css";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import { signOut } from "../../store/actions/authActions";
+import Notifications from "../dashboard/Notifications";
 
 const SignedInLinks = props => {
-  const { profile, auth } = props;
+  const { profile, auth, notifications } = props;
+  var elems = document.querySelectorAll(".dropdown-trigger");
+  var instances = M.Dropdown.init(elems, {});
 
   return (
     <div>
       <ul className="right">
         <li>
-          <NavLink to={`/publishings/${auth.uid}`}>
+          <a className="dropdown-trigger" href="#!" data-target="notifications">
             <i className="fa fa-bell nav-icon" aria-hidden="true"></i>
             Notifications
-          </NavLink>
+          </a>
         </li>
+
+        <ul id="notifications" className="dropdown-content">
+          <Notifications notifications={notifications} />
+        </ul>
 
         <li>
           <NavLink to={`/publishings/${auth.uid}`}>
