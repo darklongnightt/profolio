@@ -15,7 +15,6 @@ class ProfileSummary extends Component {
 
   render() {
     const { profile, onEdit } = this.props;
-    console.log(profile);
 
     // Get number of fields in profile not initialized to get progress
     const total = 8;

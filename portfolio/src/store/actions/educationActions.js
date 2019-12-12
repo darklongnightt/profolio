@@ -5,6 +5,7 @@ export const createEducation = education => {
     // Get states from the store
     const firestore = getFirestore();
     const userId = getState().firebase.auth.uid;
+    const profile = getState().firebase.profile;
     education = cleanData(education);
 
     // Make async db call then dispatch state
@@ -14,6 +15,8 @@ export const createEducation = education => {
       .collection("educations")
       .add({
         ...education,
+        firstName: profile.firstName,
+        lastName: profile.lastName,
         userId: userId,
         createdAt: new Date()
       })
@@ -48,7 +51,7 @@ export const deleteEducation = educationId => {
   };
 };
 
-export const editEducation = (education) => {
+export const editEducation = education => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     // Get states from the store
     const firestore = getFirestore();

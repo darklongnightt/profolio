@@ -170,3 +170,35 @@
 [info] i  functions[userJoined]: function ignored because the firebaseauth.googleapis.com emulator does not exist or is not running.
 [debug] [2019-12-12T02:03:30.372Z] [worker-~diagnostic~-db484cdd-9a24-4822-8df5-7909ed92c08c]: exited
 [debug] [2019-12-12T02:03:30.372Z] [worker-~diagnostic~-db484cdd-9a24-4822-8df5-7909ed92c08c]: FINISHED
+[debug] [2019-12-12T06:21:26.609Z] File C:\Users\Xavier\Downloads\Website Projects\Portfolio\portfolio\functions\index.js changed, reloading triggers
+[debug] [2019-12-12T06:21:27.622Z] [worker-~diagnostic~-da56d030-fe67-4a54-8791-d624a412eb0f]: Assigning socketPath: \\?\pipe\C:\Users\Xavier\Downloads\Website Projects\Portfolio\portfolio\functions\14200
+[debug] [2019-12-12T06:21:27.622Z] [worker-~diagnostic~-da56d030-fe67-4a54-8791-d624a412eb0f]: BUSY
+[debug] [2019-12-12T06:21:28.317Z] [runtime-status] [14200] Functions runtime initialized. {"cwd":"C:\\Users\\Xavier\\Downloads\\Website Projects\\Portfolio\\portfolio\\functions","node_version":"10.16.0"}
+[debug] [2019-12-12T06:21:28.320Z] [runtime-status] [14200] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2019-12-12T06:21:28.326Z] [runtime-status] [14200] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.8.0","resolution":"C:\\Users\\Xavier\\Downloads\\Website Projects\\Portfolio\\portfolio\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-12-12T06:21:28.328Z] [runtime-status] [14200] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\Xavier\\Downloads\\Website Projects\\Portfolio\\portfolio\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-12-12T06:21:28.329Z] [runtime-status] [14200] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\Xavier\\Downloads\\Website Projects\\Portfolio\\portfolio\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[info] i  functions[educationCreated]: function ignored because the firestore emulator does not exist or is not running.
+[info] i  functions[employmentCreated]: function ignored because the firestore emulator does not exist or is not running.
+[debug] [2019-12-12T06:21:28.429Z] [worker-~diagnostic~-da56d030-fe67-4a54-8791-d624a412eb0f]: exited
+[debug] [2019-12-12T06:21:28.429Z] [worker-~diagnostic~-da56d030-fe67-4a54-8791-d624a412eb0f]: FINISHED
+[debug] [2019-12-12T06:27:51.379Z] File C:\Users\Xavier\Downloads\Website Projects\Portfolio\portfolio\functions\index.js changed, reloading triggers
+[debug] [2019-12-12T06:27:52.401Z] [worker-~diagnostic~-72b37110-c34c-4dd2-b5f9-ddfa025d3f89]: Assigning socketPath: \\?\pipe\C:\Users\Xavier\Downloads\Website Projects\Portfolio\portfolio\functions\11752
+[debug] [2019-12-12T06:27:52.401Z] [worker-~diagnostic~-72b37110-c34c-4dd2-b5f9-ddfa025d3f89]: BUSY
+[debug] [2019-12-12T06:27:53.105Z] [runtime-status] [11752] Functions runtime initialized. {"cwd":"C:\\Users\\Xavier\\Downloads\\Website Projects\\Portfolio\\portfolio\\functions","node_version":"10.16.0"}
+[debug] [2019-12-12T06:27:53.107Z] [runtime-status] [11752] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2019-12-12T06:27:53.112Z] [runtime-status] [11752] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.8.0","resolution":"C:\\Users\\Xavier\\Downloads\\Website Projects\\Portfolio\\portfolio\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-12-12T06:27:53.114Z] [runtime-status] [11752] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\Xavier\\Downloads\\Website Projects\\Portfolio\\portfolio\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-12-12T06:27:53.115Z] [runtime-status] [11752] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\Xavier\\Downloads\\Website Projects\\Portfolio\\portfolio\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-12-12T06:27:53.215Z] [worker-~diagnostic~-72b37110-c34c-4dd2-b5f9-ddfa025d3f89]: exited
+[debug] [2019-12-12T06:27:53.215Z] [worker-~diagnostic~-72b37110-c34c-4dd2-b5f9-ddfa025d3f89]: FINISHED
+[debug] [2019-12-12T06:45:21.278Z] File C:\Users\Xavier\Downloads\Website Projects\Portfolio\portfolio\functions\index.js changed, reloading triggers
+[debug] [2019-12-12T06:45:22.288Z] [worker-~diagnostic~-4cbea995-37e4-4bfb-84a3-3c0eb9ce313c]: Assigning socketPath: \\?\pipe\C:\Users\Xavier\Downloads\Website Projects\Portfolio\portfolio\functions\12604
+[debug] [2019-12-12T06:45:22.288Z] [worker-~diagnostic~-4cbea995-37e4-4bfb-84a3-3c0eb9ce313c]: BUSY
+[debug] [2019-12-12T06:45:23.070Z] [runtime-status] [12604] Functions runtime initialized. {"cwd":"C:\\Users\\Xavier\\Downloads\\Website Projects\\Portfolio\\portfolio\\functions","node_version":"10.16.0"}
+[debug] [2019-12-12T06:45:23.073Z] [runtime-status] [12604] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2019-12-12T06:45:23.078Z] [runtime-status] [12604] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.8.0","resolution":"C:\\Users\\Xavier\\Downloads\\Website Projects\\Portfolio\\portfolio\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-12-12T06:45:23.080Z] [runtime-status] [12604] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\Xavier\\Downloads\\Website Projects\\Portfolio\\portfolio\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-12-12T06:45:23.082Z] [runtime-status] [12604] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\Xavier\\Downloads\\Website Projects\\Portfolio\\portfolio\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-12-12T06:45:23.185Z] [worker-~diagnostic~-4cbea995-37e4-4bfb-84a3-3c0eb9ce313c]: exited
+[debug] [2019-12-12T06:45:23.185Z] [worker-~diagnostic~-4cbea995-37e4-4bfb-84a3-3c0eb9ce313c]: FINISHED

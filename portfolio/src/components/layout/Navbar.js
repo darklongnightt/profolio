@@ -5,13 +5,29 @@ import { firestoreConnect } from "react-redux-firebase";
 import { compose } from "redux";
 import SignedInLinks from "./SignedInLinks";
 import SignedOutLinks from "./SignedOutLinks";
+import SignedInSidenav from "./SignedInSidenav";
+import SignedoutSidenav from "./SignedoutSidenav";
+import M from "materialize-css";
 
 const Navbar = props => {
+  var elems = document.querySelectorAll(".sidenav");
+  var instances = M.Sidenav.init(elems, {});
+
   const { auth, profile, notifications } = props;
   const links = auth.uid ? (
-    <SignedInLinks profile={profile} auth={auth} notifications = {notifications} />
+    <SignedInLinks
+      profile={profile}
+      auth={auth}
+      notifications={notifications}
+    />
   ) : (
     <SignedOutLinks />
+  );
+
+  const sideBar = auth.uid ? (
+    <SignedInSidenav profile={profile} auth={auth} />
+  ) : (
+    <SignedoutSidenav />
   );
 
   return (
@@ -25,6 +41,8 @@ const Navbar = props => {
         </Link>
         <div className="hide-on-med-and-down">{links}</div>
       </div>
+
+      {sideBar}
     </nav>
   );
 };

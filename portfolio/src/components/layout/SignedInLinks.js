@@ -21,7 +21,7 @@ const SignedInLinks = props => {
         </li>
 
         <ul id="notifications" className="dropdown-content">
-          <Notifications notifications={notifications} />
+          <Notifications notifications={notifications} auth={auth} />
         </ul>
 
         <li>

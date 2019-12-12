@@ -5,6 +5,7 @@ export const createProject = project => {
     // Get states from the store
     const firestore = getFirestore();
     const userId = getState().firebase.auth.uid;
+    const profile = getState().firebase.profile;
     project = cleanData(project);
 
     // Make async db call then dispatch state
@@ -15,6 +16,8 @@ export const createProject = project => {
       .add({
         ...project,
         userId: userId,
+        firstName: profile.firstName,
+        lastName: profile.lastName,
         createdAt: new Date()
       })
       .then(() => {
@@ -52,6 +55,7 @@ export const editProject = (project) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     // Get states from the store
     const firestore = getFirestore();
+    const profile = getState().firebase.profile;
     const userId = getState().firebase.auth.uid;
     project = cleanData(project);
 
@@ -64,6 +68,8 @@ export const editProject = (project) => {
       .set({
         ...project,
         userId: userId,
+        firstName: profile.firstName,
+        lastName: profile.lastName,
         modifiedAt: new Date()
       })
       .then(() => {

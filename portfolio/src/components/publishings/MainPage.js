@@ -3,9 +3,7 @@ import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
 import { compose } from "redux";
 import M from "materialize-css";
-import parallax1 from "../../img/p1.jpg";
-import parallax2 from "../../img/p2.jpg";
-import parallax3 from "../../img/parallax2.jpg";
+import parallax from "../../img/parallax.jpg";
 import EducationSection from "./EducationSection";
 import EmploymentSection from "./EmploymentSection";
 import ProjectSection from "./ProjectSection";
@@ -79,7 +77,7 @@ class MainPage extends Component {
         <React.Fragment>
           <div className="parallax-container ptop">
             <div className="parallax">
-              <img src={parallax3} />
+              <img src={parallax} />
             </div>
           </div>
 
@@ -160,7 +158,7 @@ class MainPage extends Component {
 
           <div className="parallax-container pbtm">
             <div className="parallax">
-              <img src={parallax3} />
+              <img src={parallax} />
             </div>
           </div>
         </React.Fragment>
@@ -170,7 +168,7 @@ class MainPage extends Component {
         <React.Fragment>
           <div className="parallax-container">
             <div className="parallax">
-              <img src={parallax3} />
+              <img src={parallax} />
             </div>
           </div>
 
@@ -193,7 +191,7 @@ class MainPage extends Component {
 
           <div className="parallax-container">
             <div className="parallax">
-              <img src={parallax3} />
+              <img src={parallax} />
             </div>
           </div>
         </React.Fragment>

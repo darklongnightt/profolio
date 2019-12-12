@@ -5,6 +5,7 @@ export const createEmployment = employment => {
     // Get states from the store
     const firestore = getFirestore();
     const userId = getState().firebase.auth.uid;
+    const profile = getState().firebase.profile;
     employment = cleanData(employment);
 
     // Make async db call then dispatch state
@@ -15,6 +16,8 @@ export const createEmployment = employment => {
       .add({
         ...employment,
         userId: userId,
+        firstName: profile.firstName,
+        lastName: profile.lastName,
         createdAt: new Date()
       })
       .then(() => {
@@ -52,6 +55,7 @@ export const editEmployment = (employment) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     // Get states from the store
     const firestore = getFirestore();
+    const profile = getState().firebase.profile;
     const userId = getState().firebase.auth.uid;
     employment = cleanData(employment);
 
@@ -64,6 +68,8 @@ export const editEmployment = (employment) => {
       .set({
         ...employment,
         userId: userId,
+        firstName: profile.firstName,
+        lastName: profile.lastName,
         modifiedAt: new Date()
       })
       .then(() => {

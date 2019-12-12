@@ -38,7 +38,7 @@ class PublishSettings extends Component {
           <div className="card-content">
             <h5 className="bold">
               <i className="fa fa-cog nav-icon" aria-hidden="true"></i>
-              Publish Settings
+              Public Settings
             </h5>
 
             <div className="switch">

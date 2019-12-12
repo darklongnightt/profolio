@@ -19,9 +19,40 @@ exports.projectCreated = functions.firestore
   .onCreate(doc => {
     const project = doc.data();
     const notification = {
-      content: "created a new project.",
+      content: "added a new project.",
       user: `${project.firstName} ${project.lastName}`,
-      time: admin.firestore.FieldValue.serverTimestamp()
+      time: admin.firestore.FieldValue.serverTimestamp(),
+      userId: project.userId
+    };
+
+    return createNotification(notification);
+  });
+
+// Create notification for new education doc created
+exports.educationCreated = functions.firestore
+  .document("users/{userId}/educations/{educationId}")
+  .onCreate(doc => {
+    const education = doc.data();
+    const notification = {
+      content: "added a new education.",
+      user: `${education.firstName} ${education.lastName}`,
+      time: admin.firestore.FieldValue.serverTimestamp(),
+      userId: education.userId
+    };
+
+    return createNotification(notification);
+  });
+
+// Create notification for new employment doc created
+exports.employmentCreated = functions.firestore
+  .document("users/{userId}/employments/{employmentId}")
+  .onCreate(doc => {
+    const employment = doc.data();
+    const notification = {
+      content: "added a new employment.",
+      user: `${employment.firstName} ${employment.lastName}`,
+      time: admin.firestore.FieldValue.serverTimestamp(),
+      userId: employment.userid
     };
 
     return createNotification(notification);
@@ -40,7 +71,8 @@ exports.userJoined = functions.auth.user().onCreate(user => {
       const notification = {
         content: "registered to Profolio.",
         user: `${user.firstName} ${user.lastName}`,
-        time: admin.firestore.FieldValue.serverTimestamp()
+        time: admin.firestore.FieldValue.serverTimestamp(),
+        userId: user.uid
       };
 
       return createNotification(notification);
