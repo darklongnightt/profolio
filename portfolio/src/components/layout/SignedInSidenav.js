@@ -35,7 +35,7 @@ const SignedInSidenav = props => {
         </li>
 
         <li>
-          <NavLink to="/" className="waves-effect">
+          <NavLink to="/dashboard" className="waves-effect">
             <i className="material-icons">dashboard</i>
             Dashboard
           </NavLink>

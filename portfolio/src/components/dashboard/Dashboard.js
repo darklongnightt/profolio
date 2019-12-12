@@ -15,10 +15,27 @@ class Dashboard extends Component {
   };
 
   componentDidMount() {
+    // Init materialize and modal components
     M.AutoInit();
     var modals = document.querySelectorAll(".modal");
     var modalInstances = M.Modal.init(modals, {});
     this.setState({ modals: modalInstances });
+
+    const { action } = this.props.match.params;
+    console.log(action);
+
+    // Toast messages for user action feedback
+    switch (action) {
+      case "registered":
+        M.toast({ html: "Successfully registered!" });
+        break;
+
+      case "signed_in":
+        M.toast({ html: "Successfully signed in!" });
+        break;
+
+      default:
+    }
   }
 
   handleCloseModal = () => {
@@ -41,7 +58,7 @@ class Dashboard extends Component {
             <ManageCustoms onCloseModal={this.handleCloseModal} />
           </div>
 
-          <div className="col offset-m1 m4 s12">
+          <div className="col dashboard-right m4 s12">
             {profile.isLoaded && <Profile profile={profile} />}
             {profile.isLoaded && <PublishSettings profile={profile} />}
           </div>

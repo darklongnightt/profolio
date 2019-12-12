@@ -34,7 +34,7 @@ const Navbar = props => {
     <nav className="nav-wrapper grey darken-3 nav-property">
       <div className="container">
         <Link
-          to="/"
+          to="/dashboard"
           className="brand-logo brand-text blue-text text-lighten-3 bold"
         >
           .profolio

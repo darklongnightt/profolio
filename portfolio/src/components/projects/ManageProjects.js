@@ -5,6 +5,7 @@ import { firestoreConnect } from "react-redux-firebase";
 import { compose } from "redux";
 import ManageProject from "./ManageProject";
 import CreateProject from "./CreateProject";
+import M from "materialize-css";
 import { deleteProject } from "../../store/actions/projectActions";
 import { editProject } from "../../store/actions/projectActions";
 import { createProject } from "../../store/actions/projectActions";
@@ -12,15 +13,21 @@ import { createProject } from "../../store/actions/projectActions";
 class ManageProjects extends Component {
   handleDelete = projectId => {
     this.props.deleteProject(projectId);
+    M.toast({ html: "Delete successful!" });
+
   };
 
   handleEdit = project => {
     this.props.editProject(project);
+    M.toast({ html: "Save successful!" });
+
   };
 
   handleCreate = project => {
     this.props.createProject(project);
     this.props.onCloseModal();
+    M.toast({ html: "Add successful!" });
+
   };
 
   render() {

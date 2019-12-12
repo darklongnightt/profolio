@@ -224,3 +224,13 @@ label.active {
 .notification-item {
   padding: 10px;
 }
+
+#toast-container .toast {
+  font-family: "Roboto Mono", monospace;
+  color: #81d4fa !important;
+  background-color: #424242 !important;
+}
+
+.dashboard-right {
+  margin-left: 50px !important;
+}

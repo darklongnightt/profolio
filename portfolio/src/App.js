@@ -18,7 +18,8 @@ const App = props => {
         <div>
           <Navbar />
           <Switch>
-            <Route exact path="/" component={Dashboard} />
+            <Route exact path="/dashboard" component={Dashboard} />
+            <Route path="/dashboard/:action" component={Dashboard} />
             <Route path="/signin" component={SignIn} />
             <Route path="/register" component={Register} />
             <Route path="/manage_profile" component={ManageProfile} />

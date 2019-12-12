@@ -2,22 +2,28 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { uploadPhoto } from "../../store/actions/profileActions";
 import profile_placeholder from "../../img/profile_placeholder.png";
+import M from "materialize-css";
 
 class PhotoUpload extends Component {
   state = {
-    photo: null
+    photo: null,
+    preview: null
   };
 
   handleChange = e => {
     if (e.target.files[0]) {
       const photo = e.target.files[0];
-      this.setState(() => ({ photo }));
+      this.setState(() => ({
+        photo: photo,
+        preview: URL.createObjectURL(photo)
+      }));
     }
   };
 
   handleUpload = () => {
     const { photo } = this.state;
     this.props.uploadPhoto(photo);
+    M.toast({ html: "Save profile successful!" });
   };
 
   render() {
@@ -27,7 +33,9 @@ class PhotoUpload extends Component {
         <div className="file-field input-field">
           <div className="hover-container circle ">
             <img
-              src={profile.photoUrl || profile_placeholder}
+              src={
+                this.state.preview || profile.photoUrl || profile_placeholder
+              }
               alt="Uploaded Images"
               className="circle"
               height="250"

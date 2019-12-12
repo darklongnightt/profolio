@@ -5,6 +5,7 @@ import { firestoreConnect } from "react-redux-firebase";
 import { compose } from "redux";
 import ManageEducation from "./ManageEducation";
 import CreateEducation from "./CreateEducation";
+import M from "materialize-css";
 import { deleteEducation } from "../../store/actions/educationActions";
 import { editEducation } from "../../store/actions/educationActions";
 import { createEducation } from "../../store/actions/educationActions";
@@ -12,15 +13,21 @@ import { createEducation } from "../../store/actions/educationActions";
 class ManageEducations extends Component {
   handleDelete = educationId => {
     this.props.deleteEducation(educationId);
+    M.toast({ html: "Delete successful!" });
+
   };
 
   handleEdit = education => {
     this.props.editEducation(education);
+    M.toast({ html: "Save successful!" });
+
   };
 
   handleCreate = education => {
     this.props.createEducation(education);
     this.props.onCloseModal();
+    M.toast({ html: "Add successful!" });
+
   };
 
   render() {

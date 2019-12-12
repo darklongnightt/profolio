@@ -25,6 +25,7 @@ const ViewCustom = props => {
         <div className="large-text">{custom.title}</div>
 
         <br />
+        <br />
         <div className="divider"></div>
 
         <div>

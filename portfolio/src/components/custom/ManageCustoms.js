@@ -3,24 +3,28 @@ import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
 import { compose } from "redux";
-import ManageCustom from "./ManageCustom";
-import CreateCustom from "./CreateCustom";
 import { deleteCustom } from "../../store/actions/customActions";
 import { editCustom } from "../../store/actions/customActions";
 import { createCustom } from "../../store/actions/customActions";
+import ManageCustom from "./ManageCustom";
+import CreateCustom from "./CreateCustom";
+import M from "materialize-css";
 
 class ManageCustoms extends Component {
   handleDelete = customId => {
     this.props.deleteCustom(customId);
+    M.toast({ html: "Delete successful!" });
   };
 
   handleEdit = custom => {
     this.props.editCustom(custom);
+    M.toast({ html: "Save successful!" });
   };
 
   handleCreate = custom => {
     this.props.createCustom(custom);
     this.props.onCloseModal();
+    M.toast({ html: "Add successful!" });
   };
 
   render() {

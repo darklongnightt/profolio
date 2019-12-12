@@ -10,7 +10,7 @@ const CustomSection = props => {
   if (active && customs.length > 0) {
     return (
       <div className="center">
-        <h4 className="grey-text">Custom History</h4>
+        <h4 className="grey-text">Others</h4>
         <Timeline lineColor={"#ddd"}>
           {customs &&
             customs.map(custom => {

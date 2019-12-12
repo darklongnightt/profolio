@@ -3,11 +3,13 @@ import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import ViewProfile from "./ViewProfile";
 import ProfileSummary from "./ProfileSummary";
+import M from "materialize-css";
 import { editProfile } from "../../store/actions/profileActions";
 
 class ManageProfile extends Component {
   handleEdit = profile => {
     this.props.editProfile(profile);
+    M.toast({ html: "Save profile successful!" });
   };
 
   render() {

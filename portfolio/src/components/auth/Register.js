@@ -35,7 +35,7 @@ class Register extends Component {
 
   render() {
     const { auth, authError } = this.props;
-    if (auth.uid) return <Redirect to="/" />;
+    if (auth.uid) return <Redirect to="/dashboard/registered" />;
     console.log(this.state.error);
 
     return (

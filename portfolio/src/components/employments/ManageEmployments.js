@@ -5,6 +5,7 @@ import { firestoreConnect } from "react-redux-firebase";
 import { compose } from "redux";
 import ManageEmployment from "./ManageEmployment";
 import CreateEmployment from "./CreateEmployment";
+import M from "materialize-css";
 import { deleteEmployment } from "../../store/actions/employmentActions";
 import { editEmployment } from "../../store/actions/employmentActions";
 import { createEmployment } from "../../store/actions/employmentActions";
@@ -12,15 +13,21 @@ import { createEmployment } from "../../store/actions/employmentActions";
 class ManageEmployments extends Component {
   handleDelete = employmentId => {
     this.props.deleteEmployment(employmentId);
+    M.toast({ html: "Delete successful!" });
+
   };
 
   handleEdit = employment => {
     this.props.editEmployment(employment);
+    M.toast({ html: "Save successful!" });
+
   };
 
   handleCreate = employment => {
     this.props.createEmployment(employment);
     this.props.onCloseModal();
+    M.toast({ html: "Add successful!" });
+
   };
 
   render() {
