@@ -11,9 +11,16 @@ export const editProfile = profile => {
     firestore
       .collection("users")
       .doc(userId)
-      .set({
-        ...profile,
-        initials: profile.firstName[0] + profile.lastName[0]
+      .get()
+      .then(doc => {
+        const userData = doc.data();
+        firestore
+          .collection("users")
+          .doc(userId)
+          .set({
+            ...userData,
+            ...profile
+          });
       })
       .then(() => {
         console.log("EDIT_PROFILE", profile);
