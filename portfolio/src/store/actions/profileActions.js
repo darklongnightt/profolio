@@ -41,7 +41,6 @@ export const uploadPhoto = photo => {
     const userId = getState().firebase.auth.uid;
 
     // Make async call to upload file to firebase storage
-    console.log(storage);
     storage
       .child(`${userId}/profilePhoto`)
       .put(photo)

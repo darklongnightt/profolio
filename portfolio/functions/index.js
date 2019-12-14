@@ -67,10 +67,10 @@ exports.userJoined = functions.auth.user().onCreate(user => {
     .doc(user.uid)
     .get()
     .then(doc => {
-      const user = doc.data();
+      const profile = doc.data();
       const notification = {
         content: "registered to Profolio.",
-        user: `${user.firstName} ${user.lastName}`,
+        user: `${profile.firstName} ${profile.lastName}`,
         time: admin.firestore.FieldValue.serverTimestamp(),
         userId: user.uid
       };

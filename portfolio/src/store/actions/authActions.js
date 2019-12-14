@@ -1,4 +1,4 @@
-const noError = ({ error, ...rest }) => rest
+const noError = ({ error, ...rest }) => rest;
 
 export const emailRegister = newUser => {
   return (dispatch, getState, { getFirestore, getFirebase }) => {
@@ -44,6 +44,48 @@ export const emailSignIn = credentials => {
       })
       .catch(err => {
         dispatch({ type: "LOGIN_ERROR", err });
+      });
+  };
+};
+
+export const fbSignIn = credentials => {
+  return (dispatch, getState, { getFirebase, getFirestore }) => {
+    const firestore = getFirestore();
+    const firebase = getFirebase();
+    var provider = new firebase.auth.FacebookAuthProvider();
+
+    firebase
+      .auth()
+      .signInWithPopup(provider)
+      .then(resp => {
+        // Gets signed in user information from facebook
+        const userId = resp.user.uid;
+        const profile = resp.additionalUserInfo.profile;
+        console.log(resp);
+
+        // Check if user exists in database
+        const userRef = firestore.collection("users").doc(userId);
+        userRef.get().then(doc => {
+          // Register user if does not exist
+          if (!doc.exists) {
+            userRef
+              .set({
+                email: profile.email,
+                firstName: profile.first_name,
+                lastName: profile.last_name,
+                initials: profile.first_name[0] + profile.last_name[0],
+                photoUrl: profile.picture.data.url
+              })
+              .then(resp => {
+                dispatch({ type: "FB_REGISTER_SUCCESS" });
+              });
+          } else {
+            dispatch({ type: "FB_LOGIN_SUCCESS" });
+          }
+        });
+      })
+      .catch(err => {
+        dispatch({ type: "FB_LOGIN_ERROR", err });
       });
   };
 };

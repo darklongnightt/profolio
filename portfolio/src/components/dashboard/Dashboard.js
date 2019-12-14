@@ -22,8 +22,6 @@ class Dashboard extends Component {
     this.setState({ modals: modalInstances });
 
     const { action } = this.props.match.params;
-    console.log(action);
-
     // Toast messages for user action feedback
     switch (action) {
       case "registered":

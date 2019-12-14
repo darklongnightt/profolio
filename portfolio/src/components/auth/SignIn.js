@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { emailSignIn } from "../../store/actions/authActions";
+import { emailSignIn, fbSignIn } from "../../store/actions/authActions";
 import { Redirect } from "react-router-dom";
 import M from "materialize-css";
 import header1 from "../../img/1 Intro.jpg";
@@ -29,7 +29,13 @@ class SignIn extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
+    console.log("DEFAULT SIGNIN");
     this.props.emailSignIn(this.state);
+  };
+
+  handleFbSignIn = e => {
+    console.log("FB SIGNIN");
+    this.props.fbSignIn(this.state);
   };
 
   render() {
@@ -62,12 +68,28 @@ class SignIn extends Component {
 
               <div className="red-text">{authError}</div>
 
-              <div className="input-field">
-                <button className="btn z-depth-0 blue darken-2 form-btn waves-effect waves-light">
-                  Sign In
+              <button
+                type="submit"
+                className="btn z-depth-0 blue darken-2 form-btn waves-effect waves-light"
+              >
+                Sign In
+              </button>
+
+              <div>
+                <button
+                  type="button"
+                  className="btn z-depth-0 indigo form-btn waves-effect waves-light"
+                  onClick={this.handleFbSignIn}
+                >
+                  <i
+                    className="fa fa-facebook-official nav-icon"
+                    aria-hidden="true"
+                  ></i>
+                  Continue with Facebook
                 </button>
               </div>
 
+              <br />
               <span className="grey-text">
                 Not a member? <Link to="/register">Register</Link>
               </span>
@@ -139,7 +161,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    emailSignIn: credentials => dispatch(emailSignIn(credentials))
+    emailSignIn: credentials => dispatch(emailSignIn(credentials)),
+    fbSignIn: credentials => dispatch(fbSignIn(credentials))
   };
 };
 

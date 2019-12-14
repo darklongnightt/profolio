@@ -11,7 +11,6 @@ class EditCustom extends Component {
   constructor(props) {
     super(props);
     const { custom } = this.props;
-    console.log(custom);
 
     this.state = {
       title: custom.title || "",

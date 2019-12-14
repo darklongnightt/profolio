@@ -39,6 +39,30 @@ const authReducer = (state = initState, action) => {
         authError: action.err.message
       };
 
+    case "FB_REGISTER_SUCCESS":
+      console.log("FB_REGISTER_SUCCESS");
+
+      return {
+        ...state,
+        authError: null
+      };
+
+    case "FB_LOGIN_SUCCESS":
+      console.log("FB_LOGIN_SUCCESS");
+
+      return {
+        ...state,
+        authError: null
+      };
+
+    case "FB_LOGIN_ERROR":
+      console.log("FB_LOGIN_ERROR");
+
+      return {
+        ...state,
+        authError: action.err.message
+      };
+
     default:
   }
 
