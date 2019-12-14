@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { emailSignIn, fbSignIn } from "../../store/actions/authActions";
+import { emailSignIn, fbSignIn, googleSignIn } from "../../store/actions/authActions";
 import { Redirect } from "react-router-dom";
 import M from "materialize-css";
 import header1 from "../../img/1 Intro.jpg";
@@ -9,6 +9,7 @@ import header2 from "../../img/2 Dashboard.PNG";
 import header3 from "../../img/3 Profile.PNG";
 import header4 from "../../img/4 Timeline.PNG";
 import header5 from "../../img/5 Contact.PNG";
+import googleIcon from "../../img/google_icon.png";
 
 class SignIn extends Component {
   state = {
@@ -35,8 +36,13 @@ class SignIn extends Component {
 
   handleFbSignIn = e => {
     console.log("FB SIGNIN");
-    this.props.fbSignIn(this.state);
+    this.props.fbSignIn();
   };
+
+  handleGoogleSignIn = e => {
+    console.log("GOOGLE SIGNIN");
+    this.props.googleSignIn();
+  }
 
   render() {
     const { authError, auth } = this.props;
@@ -86,6 +92,17 @@ class SignIn extends Component {
                     aria-hidden="true"
                   ></i>
                   Continue with Facebook
+                </button>
+              </div>
+
+              <div>
+                <button
+                  type="button"
+                  className="btn z-depth-0 white black-text google-btn waves-effect waves-light"
+                  onClick={this.handleGoogleSignIn}
+                >
+                  <img src={googleIcon} className="google-icon" alt="" />
+                  Continue with Google
                 </button>
               </div>
 
@@ -162,7 +179,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     emailSignIn: credentials => dispatch(emailSignIn(credentials)),
-    fbSignIn: credentials => dispatch(fbSignIn(credentials))
+    fbSignIn: () => dispatch(fbSignIn()),
+    googleSignIn: () => dispatch(googleSignIn())
   };
 };
 

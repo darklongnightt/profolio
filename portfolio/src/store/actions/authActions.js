@@ -48,12 +48,13 @@ export const emailSignIn = credentials => {
   };
 };
 
-export const fbSignIn = credentials => {
+export const fbSignIn = () => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     const firestore = getFirestore();
     const firebase = getFirebase();
     var provider = new firebase.auth.FacebookAuthProvider();
 
+    // Async call to sign in with fb pop up
     firebase
       .auth()
       .signInWithPopup(provider)
@@ -61,7 +62,6 @@ export const fbSignIn = credentials => {
         // Gets signed in user information from facebook
         const userId = resp.user.uid;
         const profile = resp.additionalUserInfo.profile;
-        console.log(resp);
 
         // Check if user exists in database
         const userRef = firestore.collection("users").doc(userId);
@@ -86,6 +86,46 @@ export const fbSignIn = credentials => {
       })
       .catch(err => {
         dispatch({ type: "FB_LOGIN_ERROR", err });
+      });
+  };
+};
+
+export const googleSignIn = () => {
+  return (dispatch, getState, { getFirebase, getFirestore }) => {
+    const firestore = getFirestore();
+    const firebase = getFirebase();
+    var provider = new firebase.auth.GoogleAuthProvider();
+
+    // Async call to sign in with google pop up
+    firebase
+      .auth()
+      .signInWithPopup(provider)
+      .then(resp => {
+        // Gets signed in user information from google
+        const userId = resp.user.uid;
+        const profile = resp.additionalUserInfo.profile;
+
+        // Check if user exists
+        const userRef = firestore.collection("users").doc(userId);
+        userRef.get().then(doc => {
+          if (!doc.exists) {
+            // Add user data into the db
+            userRef.set({
+              email: profile.email,
+              firstName: profile.given_name,
+              lastName: profile.family_name,
+              initials: profile.given_name[0] + profile.family_name[0],
+              photoUrl: profile.picture
+            });
+
+            dispatch({ type: "GOOGLE_REGISTER_SUCCESS" });
+          } else {
+            dispatch({ type: "GOOGLE_LOGIN_SUCCESS" });
+          }
+        });
+      })
+      .catch(err => {
+        dispatch({ type: "GOOGLE_LOGIN_ERROR", err });
       });
   };
 };

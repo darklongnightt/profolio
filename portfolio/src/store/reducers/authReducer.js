@@ -63,6 +63,30 @@ const authReducer = (state = initState, action) => {
         authError: action.err.message
       };
 
+    case "GOOGLE_REGISTER_SUCCESS":
+      console.log("GOOGLE_REGISTER_SUCCESS");
+
+      return {
+        ...state,
+        authError: null
+      };
+
+    case "GOOGLE_LOGIN_SUCCESS":
+      console.log("GOOGLE_LOGIN_SUCCESS");
+
+      return {
+        ...state,
+        authError: null
+      };
+
+    case "GOOGLE_LOGIN_ERROR":
+      console.log("GOOGLE_LOGIN_ERROR");
+
+      return {
+        ...state,
+        authError: action.err.message
+      };
+
     default:
   }
 

@@ -27,6 +27,22 @@ main {
   margin-top: 15px;
 }
 
+.google-btn {
+  width: 250px;
+  border-radius: 25px !important;
+  border-style: solid !important;
+  border-width: 1px !important;
+  border-color: #bdbdbd !important;
+  margin-top: 15px;
+}
+
+.google-icon {
+  width: 16px;
+  height: 16px;
+  top: 2px;
+  margin-right: 5px;
+}
+
 .auth-form {
   border-style: solid;
   border-radius: 15px !important;

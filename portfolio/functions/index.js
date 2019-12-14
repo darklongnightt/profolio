@@ -59,22 +59,39 @@ exports.employmentCreated = functions.firestore
   });
 
 // Create notification for new user joined in auth
-exports.userJoined = functions.auth.user().onCreate(user => {
-  // Get record from firestore on user data
-  return admin
-    .firestore()
-    .collection("users")
-    .doc(user.uid)
-    .get()
-    .then(doc => {
-      const profile = doc.data();
-      const notification = {
-        content: "registered to Profolio.",
-        user: `${profile.firstName} ${profile.lastName}`,
-        time: admin.firestore.FieldValue.serverTimestamp(),
-        userId: user.uid
-      };
+exports.created = functions.firestore
+  .document("users/{userId}")
+  .onCreate((snap, context) => {
+    const userId = context.params.userId;
+    const user = snap.data();
 
-      return createNotification(notification);
-    });
-});
+    const notification = {
+      content: "registered to Profolio.",
+      user: `${user.firstName} ${user.lastName}`,
+      time: admin.firestore.FieldValue.serverTimestamp(),
+      userId: userId
+    };
+
+    return createNotification(notification);
+  });
+
+// Create notification for new user joined in auth
+// exports.userJoined = functions.auth.user().onCreate(user => {
+//   // Get record from firestore on user data
+//   return admin
+//     .firestore()
+//     .collection("users")
+//     .doc(user.uid)
+//     .get()
+//     .then(doc => {
+//       const profile = doc.data();
+//       const notification = {
+//         content: "registered to Profolio.",
+//         user: `${profile.firstName} ${profile.lastName}`,
+//         time: admin.firestore.FieldValue.serverTimestamp(),
+//         userId: user.uid
+//       };
+
+//       return createNotification(notification);
+//     });
+// });
