@@ -14,20 +14,17 @@ class ManageProjects extends Component {
   handleDelete = projectId => {
     this.props.deleteProject(projectId);
     M.toast({ html: "Delete successful!" });
-
   };
 
   handleEdit = project => {
     this.props.editProject(project);
     M.toast({ html: "Save successful!" });
-
   };
 
   handleCreate = project => {
     this.props.createProject(project);
     this.props.onCloseModal();
     M.toast({ html: "Add successful!" });
-
   };
 
   render() {
@@ -46,6 +43,17 @@ class ManageProjects extends Component {
               <p>Disabled</p>
             </div>
           </li>
+
+          {projects && projects.length === 0 && (
+            <li className="disabled">
+              <div className="collapsible-header white grey-text center">
+                Section Empty
+              </div>
+              <div className="collapsible-body">
+                <p>Disabled</p>
+              </div>
+            </li>
+          )}
 
           {projects &&
             projects.map(project => {
@@ -69,7 +77,7 @@ class ManageProjects extends Component {
 
           <li className="disabled">
             <div
-              className="collapsible-header modal-trigger blue lighten-3 white-text flow-text add-icon center waves-effect waves-light"
+              className="collapsible-header modal-trigger blue lighten-2 white-text flow-text add-icon center waves-effect waves-light"
               href="#newProject"
             >
               <i className="material-icons">add</i>

@@ -59,7 +59,7 @@ exports.employmentCreated = functions.firestore
   });
 
 // Create notification for new user joined in auth
-exports.created = functions.firestore
+exports.userJoined = functions.firestore
   .document("users/{userId}")
   .onCreate((snap, context) => {
     const userId = context.params.userId;

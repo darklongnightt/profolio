@@ -14,20 +14,17 @@ class ManageEmployments extends Component {
   handleDelete = employmentId => {
     this.props.deleteEmployment(employmentId);
     M.toast({ html: "Delete successful!" });
-
   };
 
   handleEdit = employment => {
     this.props.editEmployment(employment);
     M.toast({ html: "Save successful!" });
-
   };
 
   handleCreate = employment => {
     this.props.createEmployment(employment);
     this.props.onCloseModal();
     M.toast({ html: "Add successful!" });
-
   };
 
   render() {
@@ -39,13 +36,24 @@ class ManageEmployments extends Component {
         <ul className="collapsible z-depth-0">
           <li className="disabled">
             <div className="collapsible-header grey darken-2 white-text center">
-            <i className="fa fa-briefcase nav-icon" aria-hidden="true"></i>
+              <i className="fa fa-briefcase nav-icon" aria-hidden="true"></i>
               Employments
             </div>
             <div className="collapsible-body">
               <p>Disabled</p>
             </div>
           </li>
+
+          {employments && employments.length === 0 && (
+            <li className="disabled">
+              <div className="collapsible-header white grey-text center">
+                Section Empty
+              </div>
+              <div className="collapsible-body">
+                <p>Disabled</p>
+              </div>
+            </li>
+          )}
 
           {employments &&
             employments.map(employment => {
@@ -69,7 +77,7 @@ class ManageEmployments extends Component {
 
           <li className="disabled">
             <div
-              className="collapsible-header modal-trigger blue lighten-3 white-text flow-text add-icon center waves-effect waves-light"
+              className="collapsible-header modal-trigger blue lighten-2 white-text flow-text add-icon center waves-effect waves-light"
               href="#newEmployment"
             >
               <i className="material-icons">add</i>

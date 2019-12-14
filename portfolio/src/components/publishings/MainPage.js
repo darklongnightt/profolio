@@ -203,7 +203,7 @@ class MainPage extends Component {
                         className="fa fa-linkedin-square icon-space"
                         aria-hidden="true"
                       ></i>
-                      LinkIn
+                      LinkedIn
                     </h6>
                   </a>
                 )}

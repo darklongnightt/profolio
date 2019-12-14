@@ -32,7 +32,7 @@ main {
   border-radius: 25px !important;
   border-style: solid !important;
   border-width: 1px !important;
-  border-color: #bdbdbd !important;
+  border-color: #757575 !important;
   margin-top: 15px;
 }
 
@@ -117,8 +117,13 @@ label.active {
   color: black;
 }
 
+.collapsible {
+  border-radius: 25px !important;
+}
+
 .collapsible-header {
   font-size: larger;
+  border-radius: 25px !important;
   display: block !important;
 }
 

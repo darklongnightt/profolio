@@ -14,20 +14,17 @@ class ManageEducations extends Component {
   handleDelete = educationId => {
     this.props.deleteEducation(educationId);
     M.toast({ html: "Delete successful!" });
-
   };
 
   handleEdit = education => {
     this.props.editEducation(education);
     M.toast({ html: "Save successful!" });
-
   };
 
   handleCreate = education => {
     this.props.createEducation(education);
     this.props.onCloseModal();
     M.toast({ html: "Add successful!" });
-
   };
 
   render() {
@@ -46,6 +43,17 @@ class ManageEducations extends Component {
               <p>Disabled</p>
             </div>
           </li>
+
+          {educations && educations.length === 0 && (
+            <li className="disabled">
+              <div className="collapsible-header white grey-text center">
+                Section Empty
+              </div>
+              <div className="collapsible-body">
+                <p>Disabled</p>
+              </div>
+            </li>
+          )}
 
           {educations &&
             educations.map(education => {
@@ -69,7 +77,7 @@ class ManageEducations extends Component {
 
           <li className="disabled">
             <div
-              className="collapsible-header modal-trigger blue lighten-3 white-text flow-text add-icon center waves-effect waves-light"
+              className="collapsible-header modal-trigger blue lighten-2 white-text flow-text add-icon center waves-effect waves-light"
               href="#newEducation"
             >
               <i className="material-icons">add</i>

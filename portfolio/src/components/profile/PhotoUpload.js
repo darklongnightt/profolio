@@ -56,7 +56,7 @@ class PhotoUpload extends Component {
           onClick={this.handleUpload}
           className="btn z-depth-0 blue darken-2 form-btn waves-effect waves-light"
         >
-          <i className="fa fa-cloud-upload" aria-hidden="true"></i>
+          <i className="fa fa-cloud-upload" aria-hidden="true"></i> Upload
         </button>
       </div>
     );
