@@ -199,6 +199,7 @@ label.active {
 
 .parallax-top {
   bottom: 240px;
+  background-color: black;
 }
 
 .parallax-btm {
@@ -274,4 +275,12 @@ label.active {
   border-color: grey !important;
   border-width: 2px !important;
   border-radius: 15px !important;
+}
+
+.ql-editor strong {
+  font-weight: bold;
+}
+
+div.display li {
+  list-style-type: disc !important;
 }

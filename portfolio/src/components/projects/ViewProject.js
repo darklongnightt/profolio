@@ -25,10 +25,10 @@ const ViewProject = props => {
       <br />
       <div className="divider"></div>
 
-      <div>
-        <i className="fa fa-list-ul action-icon" aria-hidden="true"></i>
-        {project.content}
-      </div>
+      <div
+        className="display"
+        dangerouslySetInnerHTML={{ __html: project.content }}
+      ></div>
 
       <br />
       <div className="grey-text brand-text">

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ReactQuill from "react-quill";
 
 class EditProject extends Component {
   state = {
@@ -29,6 +30,12 @@ class EditProject extends Component {
     });
   };
 
+  handleTextChange = e => {
+    this.setState({
+      content: e
+    });
+  };
+
   handleSubmit = e => {
     e.preventDefault();
 
@@ -46,6 +53,24 @@ class EditProject extends Component {
       this.props.onSetMode("VIEW");
     }
   };
+
+  // To customize quill text editor
+  modules = {
+    toolbar: [
+      ["bold", "italic", "underline", "strike", "blockquote"],
+      [{ list: "ordered" }, { list: "bullet" }]
+    ]
+  };
+
+  formats = [
+    "bold",
+    "italic",
+    "underline",
+    "strike",
+    "blockquote",
+    "list",
+    "bullet"
+  ];
 
   render() {
     const { project, onDelete, onSetMode } = this.props;
@@ -99,16 +124,14 @@ class EditProject extends Component {
             </div>
 
             <div className="input-field">
-              <i className="material-icons prefix">book</i>
-              <label className="active" htmlFor="content">
-                Description
-              </label>
-              <textarea
+              <ReactQuill
+                placeholder="Describe more about your project here."
                 id="content"
-                className="materialize-textarea"
-                onChange={this.handleChange}
                 value={this.state.content}
-              ></textarea>
+                onChange={this.handleTextChange}
+                modules={this.modules}
+                formats={this.formats}
+              />
             </div>
 
             <div className="red-text">{this.state.error}</div>

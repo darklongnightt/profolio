@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ReactQuill from "react-quill";
 
 class CreateProject extends Component {
   state = {
@@ -14,11 +15,21 @@ class CreateProject extends Component {
     });
   };
 
+  handleTextChange = e => {
+    this.setState({
+      content: e
+    });
+  };
+
   handleSubmit = e => {
     e.preventDefault();
 
     // Error checking before dispatching action and close modal
-    if (this.state.title === "" || this.state.skills === "" || this.state.content === "") {
+    if (
+      this.state.title === "" ||
+      this.state.skills === "" ||
+      this.state.content === ""
+    ) {
       this.setState({
         ...this.state,
         error: "All project fields are required."
@@ -33,6 +44,24 @@ class CreateProject extends Component {
       });
     }
   };
+
+  // To customize quill text editor
+  modules = {
+    toolbar: [
+      ["bold", "italic", "underline", "strike", "blockquote"],
+      [{ list: "ordered" }, { list: "bullet" }]
+    ]
+  };
+
+  formats = [
+    "bold",
+    "italic",
+    "underline",
+    "strike",
+    "blockquote",
+    "list",
+    "bullet"
+  ];
 
   render() {
     return (
@@ -50,7 +79,6 @@ class CreateProject extends Component {
               value={this.state.title}
             />
           </div>
-
           <div className="input-field">
             <i className="material-icons prefix">developer_board</i>
             <label htmlFor="skills">Skills Involved</label>
@@ -63,18 +91,17 @@ class CreateProject extends Component {
           </div>
 
           <div className="input-field">
-            <i className="material-icons prefix">book</i>
-            <label htmlFor="content">Description</label>
-            <textarea
+            <ReactQuill
+              placeholder="Describe more about your project here."
               id="content"
-              className="materialize-textarea"
-              onChange={this.handleChange}
               value={this.state.content}
-            ></textarea>
+              onChange={this.handleTextChange}
+              modules={this.modules}
+              formats={this.formats}
+            />
           </div>
 
           <div className="red-text">{this.state.error}</div>
-
           <div className="input-field">
             <button className="btn z-depth-0 blue darken-2 form-btn waves-effect waves-light">
               <i className="material-icons">send</i>

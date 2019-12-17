@@ -29,7 +29,10 @@ const ProjectSection = props => {
                 >
                   <h3>{project.title}</h3>
                   <h4>{project.skills}</h4>
-                  <p className="grey-text">{project.content}</p>
+                  <div
+                    className="display"
+                    dangerouslySetInnerHTML={{ __html: project.content }}
+                  ></div>
                 </TimelineItem>
               );
             })}

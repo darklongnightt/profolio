@@ -295,7 +295,7 @@ export default compose(
         collection: "users",
         doc: props.match.params.id,
         subcollections: [{ collection: "projects" }],
-        orderBy: ["createdAt", "desc"],
+        orderBy: ["createdAt"],
         storeAs: "projects"
       },
       {
