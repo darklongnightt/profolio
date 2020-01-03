@@ -32,6 +32,10 @@ service cloud.firestore {
       allow read
       allow write: if request.auth.uid == userId
     }
+
+    match /users/{userId}/views/{date} {
+      allow read, write
+    }
     
     match /notifications/{project} {
       allow read

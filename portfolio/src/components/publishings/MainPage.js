@@ -9,6 +9,7 @@ import EmploymentSection from "./EmploymentSection";
 import ProjectSection from "./ProjectSection";
 import CustomSection from "./CustomSection";
 import ProfileSection from "./ProfileSection";
+import { updateProfileViews } from "../../store/actions/profileActions";
 
 class MainPage extends Component {
   state = {
@@ -17,6 +18,13 @@ class MainPage extends Component {
 
   componentDidMount() {
     M.AutoInit();
+
+    // Update profile views, check if current user belongs to profile
+    const { auth, updateViews } = this.props;
+    const uid = this.props.match.params.id;
+    if (auth.uid !== uid) {
+      updateViews(uid);
+    }
   }
 
   handleClick = component => {
@@ -84,7 +92,7 @@ class MainPage extends Component {
 
           <div className="section white">
             <div className="row">
-              <div className="col offset-m1 offset-s1 m2 s2 ">
+              <div className="col offset-m1 offset-s1 m2 s2 button-margin">
                 {this.state.currentComponent === "profile" ? (
                   <a
                     href="#!"
@@ -104,7 +112,7 @@ class MainPage extends Component {
                 )}
               </div>
 
-              <div className="col m2 s2 center">
+              <div className="col m2 s2 center button-margin">
                 {this.state.currentComponent === "educations" ? (
                   <button
                     className="btn-floating btn-large waves-effect waves-light red lighten-2 parallax-top pulse"
@@ -122,7 +130,7 @@ class MainPage extends Component {
                 )}
               </div>
 
-              <div className="col m2 s2 center">
+              <div className="col m2 s2 center button-margin">
                 {this.state.currentComponent === "employments" ? (
                   <a
                     href="#!"
@@ -142,7 +150,7 @@ class MainPage extends Component {
                 )}
               </div>
 
-              <div className="col m2 s2 center">
+              <div className="col m2 s2 center button-margin">
                 {this.state.currentComponent === "projects" ? (
                   <a
                     href="#!"
@@ -162,7 +170,7 @@ class MainPage extends Component {
                 )}
               </div>
 
-              <div className="col m2 s2 center">
+              <div className="col m2 s2 center button-margin">
                 {this.state.currentComponent === "customs" ? (
                   <a
                     href="#!"
@@ -255,6 +263,12 @@ class MainPage extends Component {
   }
 }
 
+const mapDispatchToProps = dispatch => {
+  return {
+    updateViews: userId => dispatch(updateProfileViews(userId))
+  };
+};
+
 const mapStateToProps = (state, ownProps) => {
   const id = ownProps.match.params.id;
   const users = state.firestore.data.users;
@@ -265,12 +279,13 @@ const mapStateToProps = (state, ownProps) => {
     educations: state.firestore.ordered.educations,
     employments: state.firestore.ordered.employments,
     projects: state.firestore.ordered.projects,
-    customs: state.firestore.ordered.customs
+    customs: state.firestore.ordered.customs,
+    auth: state.firebase.auth
   };
 };
 
 export default compose(
-  connect(mapStateToProps),
+  connect(mapStateToProps, mapDispatchToProps),
   firestoreConnect(props => {
     return [
       {

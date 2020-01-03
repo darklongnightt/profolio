@@ -1,3 +1,5 @@
+import moment from "moment";
+
 const cleanData = ({ error, mode, ...rest }) => rest;
 
 export const editProfile = profile => {
@@ -99,6 +101,42 @@ export const updateSettings = settings => {
           .then(() => {
             console.log("UPDATE_SETTINGS", settings);
           });
+      });
+  };
+};
+
+export const updateProfileViews = userId => {
+  return (dispatch, getState, { getFirebase, getFirestore }) => {
+    const firestore = getFirestore();
+    const today = moment().format("YYYY-MM-DD");
+
+    const docRef = firestore
+      .collection("users")
+      .doc(userId)
+      .collection("views")
+      .doc(today);
+
+    // Check that doc exists, increment profile views on current date
+    docRef
+      .get()
+      .then(doc => {
+        if (!doc.exists) {
+          // Create doc and set count as 1
+          docRef.set({
+            count: 1,
+            date: today
+          });
+        } else {
+          const count = doc.data().count;
+
+          docRef.set({
+            count: count + 1,
+            date: today
+          });
+        }
+      })
+      .catch(err => {
+        console.log("UPDATE_VIEWS_ERROR", err.message);
       });
   };
 };
