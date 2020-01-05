@@ -8,7 +8,7 @@ import ManageEducations from "../educations/ManageEducations";
 import ManageCustoms from "../custom/ManageCustoms";
 import PublishSettings from "./PublishSettings";
 import Profile from "./Profile";
-import Analytics from "./Analytics"
+import Analytics from "./Analytics";
 
 class Dashboard extends Component {
   state = {
@@ -57,11 +57,13 @@ class Dashboard extends Component {
             <ManageCustoms onCloseModal={this.handleCloseModal} />
           </div>
 
-          <div className="col m4 s12">
-            {profile.isLoaded && <Profile profile={profile} />}
-            {profile.isLoaded && <PublishSettings profile={profile} />}
-            {profile.isLoaded && <Analytics />}
-          </div>
+          {profile.isLoaded && (
+            <div className="col m4 s12">
+              <Profile profile={profile} />
+              <Analytics />
+              <PublishSettings profile={profile} />
+            </div>
+          )}
         </div>
       </div>
     );

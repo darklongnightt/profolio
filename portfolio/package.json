@@ -16,6 +16,7 @@
     "react-redux-firebase": "^3.0.5",
     "react-router-dom": "^5.1.2",
     "react-scripts": "^3.3.0",
+    "recharts": "^2.0.0-beta.1",
     "redux": "^4.0.4",
     "redux-firestore": "^0.11.0",
     "redux-thunk": "^2.3.0",

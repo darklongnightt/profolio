@@ -33,88 +33,86 @@ class PublishSettings extends Component {
 
   render() {
     return (
-      <div className="section">
-        <div className="card z-depth-0 modal-container">
-          <div className="card-content">
-            <h5 className="bold">
-              <i className="fa fa-cog nav-icon" aria-hidden="true"></i>
-              Public Settings
-            </h5>
+      <div className="card z-depth-0 modal-container">
+        <div className="card-content">
+          <h5 className="bold center">
+            Public Settings
+          </h5>
+          <br/>
 
-            <div className="switch">
-              <span className="blue-text brand-text bold publish-section">
-                Education Section
-              </span>
+          <div className="switch">
+            <span className="blue-text brand-text bold publish-section">
+              Education Section
+            </span>
 
-              <label>
-                <input
-                  type="checkbox"
-                  id="publishEducations"
-                  onChange={this.handleChange}
-                  checked={this.state.publishEducations}
-                />
-                <span className="lever"></span>
-              </label>
-            </div>
-
-            <div className="switch">
-              <span className="blue-text brand-text bold publish-section">
-                Employment Section
-              </span>
-
-              <label>
-                <input
-                  type="checkbox"
-                  id="publishEmployments"
-                  onChange={this.handleChange}
-                  checked={this.state.publishEmployments}
-                />
-                <span className="lever"></span>
-              </label>
-            </div>
-
-            <div className="switch">
-              <span className="blue-text brand-text bold publish-section">
-                Project Section
-              </span>
-
-              <label>
-                <input
-                  type="checkbox"
-                  id="publishProjects"
-                  onChange={this.handleChange}
-                  checked={this.state.publishProjects}
-                />
-                <span className="lever"></span>
-              </label>
-            </div>
-
-            <div className="switch">
-              <span className="blue-text brand-text bold publish-section">
-                Custom Section
-              </span>
-
-              <label>
-                <input
-                  type="checkbox"
-                  id="publishCustoms"
-                  onChange={this.handleChange}
-                  checked={this.state.publishCustoms}
-                />
-                <span className="lever"></span>
-              </label>
-            </div>
+            <label>
+              <input
+                type="checkbox"
+                id="publishEducations"
+                onChange={this.handleChange}
+                checked={this.state.publishEducations}
+              />
+              <span className="lever"></span>
+            </label>
           </div>
 
-          <br />
+          <div className="switch">
+            <span className="blue-text brand-text bold publish-section">
+              Employment Section
+            </span>
 
-          <button
-            className="btn-floating halfway-fab btn-large waves-effect waves-light red lighten-1"
-            onClick={this.handleSubmit}
-          >
-            <i className="material-icons">publish</i>
-          </button>
+            <label>
+              <input
+                type="checkbox"
+                id="publishEmployments"
+                onChange={this.handleChange}
+                checked={this.state.publishEmployments}
+              />
+              <span className="lever"></span>
+            </label>
+          </div>
+
+          <div className="switch">
+            <span className="blue-text brand-text bold publish-section">
+              Project Section
+            </span>
+
+            <label>
+              <input
+                type="checkbox"
+                id="publishProjects"
+                onChange={this.handleChange}
+                checked={this.state.publishProjects}
+              />
+              <span className="lever"></span>
+            </label>
+          </div>
+
+          <div className="switch">
+            <span className="blue-text brand-text bold publish-section">
+              Custom Section
+            </span>
+
+            <label>
+              <input
+                type="checkbox"
+                id="publishCustoms"
+                onChange={this.handleChange}
+                checked={this.state.publishCustoms}
+              />
+              <span className="lever"></span>
+            </label>
+          </div>
         </div>
+
+        <br />
+
+        <button
+          className="btn-floating halfway-fab btn-large waves-effect waves-light red lighten-1"
+          onClick={this.handleSubmit}
+        >
+          <i className="material-icons">publish</i>
+        </button>
       </div>
     );
   }

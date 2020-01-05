@@ -2,6 +2,14 @@ import React from "react";
 import Placeholder from "../../img/profile_placeholder.png";
 import { Link } from "react-router-dom";
 
+const shortenSummary = (summary, max) => {
+  if (summary.length > max) {
+    return summary.substring(0, max) + "...";
+  } else {
+    return summary;
+  }
+};
+
 const Profile = props => {
   const { profile } = props;
 
@@ -31,9 +39,11 @@ const Profile = props => {
             </div>
           )}
 
-          <p className="grey-text text-darken-1">
-            <i>{profile.summary}</i>
-          </p>
+          {profile.summary && (
+            <p className="grey-text text-darken-1">
+              <i>" {shortenSummary(profile.summary, 110)} "</i>
+            </p>
+          )}
         </div>
       </Link>
     );

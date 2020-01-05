@@ -284,3 +284,7 @@ label.active {
 div.display li {
   list-style-type: disc !important;
 }
+
+.chart {
+  margin-right: 100px !important;
+}

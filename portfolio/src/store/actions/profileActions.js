@@ -109,6 +109,7 @@ export const updateProfileViews = userId => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     const firestore = getFirestore();
     const today = moment().format("YYYY-MM-DD");
+    const date = moment().format("Do MMM");
 
     const docRef = firestore
       .collection("users")
@@ -124,14 +125,14 @@ export const updateProfileViews = userId => {
           // Create doc and set count as 1
           docRef.set({
             count: 1,
-            date: today
+            date: date
           });
         } else {
           const count = doc.data().count;
 
           docRef.set({
             count: count + 1,
-            date: today
+            date: date
           });
         }
       })
