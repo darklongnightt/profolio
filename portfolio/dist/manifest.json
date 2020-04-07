@@ -1,7 +1,12 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Profolio",
+  "name": "A portfolio management platform developed using React, Redux and Firebase. Register now to establish a proffessional online presence by showcasing your profile, work experience, projects and publish as an URL.",
   "icons": [
+    {
+      "src": "manifest.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
   ],
   "start_url": ".",
   "display": "standalone",
