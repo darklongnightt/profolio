@@ -1,6 +1,6 @@
 ﻿Profolio
 A portfolio management platform developed using React, Redux and Firebase. 
-Register now to create a online proffessional presence by showcasing your profile, work experience, projects and publish it as a web URL to potential employers.
+Register now to establish a proffessional online presence by showcasing your profile, work experience, projects and publish as an URL.
 
 Firebase
 Firestore - noSQL database to store application data
