@@ -77,6 +77,10 @@ label.active {
   margin-top: 250px;
 }
 
+.preloader-main {
+  margin: 100px 0;
+}
+
 .nav-icon {
   margin-right: 5px;
   height: 100%;
@@ -197,9 +201,12 @@ label.active {
   margin-bottom: 10px;
 }
 
+.parallax{
+  background: black;
+}
+
 .parallax-top {
   bottom: 240px;
-  background-color: black;
 }
 
 .parallax-btm {
@@ -219,10 +226,6 @@ label.active {
 
 .pbtm {
   height: 200px !important;
-}
-
-.p-content {
-  padding-bottom: 5px;
 }
 
 .icon-space {
@@ -287,4 +290,8 @@ div.display li {
 
 .chart {
   margin-right: 100px !important;
+}
+
+.content-container {
+  margin-top: 30px;
 }

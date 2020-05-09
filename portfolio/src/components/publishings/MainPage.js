@@ -63,7 +63,6 @@ class MainPage extends Component {
               active={user.publishProjects}
             />
           );
-
           break;
         case "customs":
           component = (
@@ -72,13 +71,10 @@ class MainPage extends Component {
               active={user.publishCustoms}
             />
           );
-
           break;
-
         case "profile":
           component = <ProfileSection profile={user} />;
           break;
-
         default:
       }
 
@@ -90,7 +86,7 @@ class MainPage extends Component {
             </div>
           </div>
 
-          <div className="section white">
+          <div className="section white content-container">
             <div className="row">
               <div className="col offset-m1 offset-s1 m2 s2 button-margin">
                 {this.state.currentComponent === "profile" ? (
@@ -102,14 +98,14 @@ class MainPage extends Component {
                     <i className="material-icons">person</i>
                   </a>
                 ) : (
-                  <a
-                    href="#!"
-                    className="btn-floating btn-large waves-effect waves-light yellow darken-2 parallax-top"
-                    onClick={() => this.handleClick("profile")}
-                  >
-                    <i className="material-icons">person</i>
-                  </a>
-                )}
+                    <a
+                      href="#!"
+                      className="btn-floating btn-large waves-effect waves-light yellow darken-2 parallax-top"
+                      onClick={() => this.handleClick("profile")}
+                    >
+                      <i className="material-icons">person</i>
+                    </a>
+                  )}
               </div>
 
               <div className="col m2 s2 center button-margin">
@@ -121,13 +117,13 @@ class MainPage extends Component {
                     <i className="material-icons">school</i>
                   </button>
                 ) : (
-                  <button
-                    className="btn-floating btn-large waves-effect waves-light red lighten-2 parallax-top"
-                    onClick={() => this.handleClick("educations")}
-                  >
-                    <i className="material-icons">school</i>
-                  </button>
-                )}
+                    <button
+                      className="btn-floating btn-large waves-effect waves-light red lighten-2 parallax-top"
+                      onClick={() => this.handleClick("educations")}
+                    >
+                      <i className="material-icons">school</i>
+                    </button>
+                  )}
               </div>
 
               <div className="col m2 s2 center button-margin">
@@ -140,14 +136,14 @@ class MainPage extends Component {
                     <i className="material-icons">business_center</i>
                   </a>
                 ) : (
-                  <a
-                    href="#!"
-                    className="btn-floating btn-large waves-effect waves-light blue lighten-1 parallax-top"
-                    onClick={() => this.handleClick("employments")}
-                  >
-                    <i className="material-icons">business_center</i>
-                  </a>
-                )}
+                    <a
+                      href="#!"
+                      className="btn-floating btn-large waves-effect waves-light blue lighten-1 parallax-top"
+                      onClick={() => this.handleClick("employments")}
+                    >
+                      <i className="material-icons">business_center</i>
+                    </a>
+                  )}
               </div>
 
               <div className="col m2 s2 center button-margin">
@@ -160,14 +156,14 @@ class MainPage extends Component {
                     <i className="material-icons">developer_mode</i>
                   </a>
                 ) : (
-                  <a
-                    href="#!"
-                    className="btn-floating btn-large waves-effect waves-light green lighten-1 parallax-top"
-                    onClick={() => this.handleClick("projects")}
-                  >
-                    <i className="material-icons">developer_mode</i>
-                  </a>
-                )}
+                    <a
+                      href="#!"
+                      className="btn-floating btn-large waves-effect waves-light green lighten-1 parallax-top"
+                      onClick={() => this.handleClick("projects")}
+                    >
+                      <i className="material-icons">developer_mode</i>
+                    </a>
+                  )}
               </div>
 
               <div className="col m2 s2 center button-margin">
@@ -180,14 +176,14 @@ class MainPage extends Component {
                     <i className="fa fa-trophy" aria-hidden="true"></i>
                   </a>
                 ) : (
-                  <a
-                    href="#!"
-                    className="btn-floating btn-large waves-effect waves-light yellow darken-2 parallax-top"
-                    onClick={() => this.handleClick("customs")}
-                  >
-                    <i className="fa fa-trophy" aria-hidden="true"></i>
-                  </a>
-                )}
+                    <a
+                      href="#!"
+                      className="btn-floating btn-large waves-effect waves-light yellow darken-2 parallax-top"
+                      onClick={() => this.handleClick("customs")}
+                    >
+                      <i className="fa fa-trophy" aria-hidden="true"></i>
+                    </a>
+                  )}
               </div>
             </div>
 
@@ -205,7 +201,9 @@ class MainPage extends Component {
                 </h6>
 
                 {user.socialUrl && (
-                  <a href={user.socialUrl}>
+                  <a
+                    target="_blank"
+                    href={user.socialUrl}>
                     <h6 className="col m4 s6 white-text">
                       <i
                         className="fa fa-linkedin-square icon-space"
@@ -235,8 +233,8 @@ class MainPage extends Component {
             </div>
           </div>
 
-          <div className="section white center ">
-            <div className="preloader-wrapper big active preloader-margin">
+          <div className="section white center">
+            <div className="preloader-wrapper big active preloader-main">
               <div className="spinner-layer spinner-blue-only">
                 <div className="circle-clipper left">
                   <div className="circle"></div>
