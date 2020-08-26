@@ -203,7 +203,9 @@ class MainPage extends Component {
                 {user.socialUrl && (
                   <a
                     target="_blank"
-                    href={user.socialUrl}>
+                    href={user.socialUrl}
+                    rel="noopener noreferrer"
+                  >
                     <h6 className="col m4 s6 white-text">
                       <i
                         className="fa fa-linkedin-square icon-space"
