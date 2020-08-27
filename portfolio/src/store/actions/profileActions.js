@@ -2,7 +2,7 @@ import moment from "moment";
 
 const cleanData = ({ error, mode, ...rest }) => rest;
 
-export const editProfile = profile => {
+export const editProfile = (profile) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     // Get states from the store
     const firestore = getFirestore();
@@ -14,57 +14,55 @@ export const editProfile = profile => {
       .collection("users")
       .doc(userId)
       .get()
-      .then(doc => {
+      .then((doc) => {
         const userData = doc.data();
         firestore
           .collection("users")
           .doc(userId)
           .set({
             ...userData,
-            ...profile
+            ...profile,
           });
       })
       .then(() => {
         console.log("EDIT_PROFILE", profile);
       })
-      .catch(err => {
+      .catch((err) => {
         console.log("EDIT_PROFILE_ERROR", err.message);
       });
   };
 };
 
-export const uploadPhoto = photo => {
+export const uploadPhoto = (photo) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     // Get reference to storage and firestore
     const firestore = getFirestore();
-    const storage = getFirebase()
-      .storage()
-      .ref();
+    const storage = getFirebase().storage().ref();
     const userId = getState().firebase.auth.uid;
 
     // Make async call to upload file to firebase storage
     storage
       .child(`${userId}/profilePhoto`)
       .put(photo)
-      .then(snapshot => {
+      .then((snapshot) => {
         // Retrieve photo url and update in db
         storage
           .child(`${userId}/profilePhoto`)
           .getDownloadURL()
-          .then(url => {
+          .then((url) => {
             // Adding url to user profile data
             firestore
               .collection("users")
               .doc(userId)
               .get()
-              .then(doc => {
+              .then((doc) => {
                 const userData = doc.data();
                 firestore
                   .collection("users")
                   .doc(userId)
                   .set({
                     ...userData,
-                    photoUrl: url
+                    photoUrl: url,
                   })
                   .then(() => {
                     console.log("UPLOAD_SUCCESS", url);
@@ -72,13 +70,13 @@ export const uploadPhoto = photo => {
               });
           });
       })
-      .catch(err => {
+      .catch((err) => {
         console.log("UPLOAD_ERROR", err.message);
       });
   };
 };
 
-export const updateSettings = settings => {
+export const updateSettings = (settings) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     // Get states from the store
     const firestore = getFirestore();
@@ -89,23 +87,27 @@ export const updateSettings = settings => {
       .collection("users")
       .doc(userId)
       .get()
-      .then(doc => {
+      .then((doc) => {
         const userData = doc.data();
         firestore
           .collection("users")
           .doc(userId)
           .set({
             ...userData,
-            ...settings
+            ...settings,
           })
           .then(() => {
             console.log("UPDATE_SETTINGS", settings);
           });
+      })
+      .catch((err) => {
+        console.log("UPDATE_SETTINGS_ERROR", err.message);
+        return err;
       });
   };
 };
 
-export const updateProfileViews = userId => {
+export const updateProfileViews = (userId) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     const firestore = getFirestore();
     const today = moment().format("YYYY-MM-DD");
@@ -120,23 +122,23 @@ export const updateProfileViews = userId => {
     // Check that doc exists, increment profile views on current date
     docRef
       .get()
-      .then(doc => {
+      .then((doc) => {
         if (!doc.exists) {
           // Create doc and set count as 1
           docRef.set({
             count: 1,
-            date: date
+            date: date,
           });
         } else {
           const count = doc.data().count;
 
           docRef.set({
             count: count + 1,
-            date: date
+            date: date,
           });
         }
       })
-      .catch(err => {
+      .catch((err) => {
         console.log("UPDATE_VIEWS_ERROR", err.message);
       });
   };

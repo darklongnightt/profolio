@@ -192,8 +192,8 @@ label.active {
 }
 
 .publish-section {
-  float: left;
-  width: 165px;
+  display: inline-block;
+  width: 200px;
 }
 
 .switch {
