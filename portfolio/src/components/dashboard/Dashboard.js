@@ -12,7 +12,7 @@ import Analytics from "./Analytics";
 
 class Dashboard extends Component {
   state = {
-    modals: ""
+    modals: "",
   };
 
   componentDidMount() {
@@ -38,7 +38,7 @@ class Dashboard extends Component {
   }
 
   handleCloseModal = () => {
-    this.state.modals.map(modal => {
+    this.state.modals.map((modal) => {
       return modal.close();
     });
   };
@@ -59,7 +59,7 @@ class Dashboard extends Component {
 
           {profile.isLoaded && (
             <div className="col m4 s12">
-              <Profile profile={profile} />
+              <Profile profile={profile} auth={auth} />
               <Analytics />
               <PublishSettings profile={profile} />
             </div>
@@ -70,10 +70,10 @@ class Dashboard extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     profile: state.firebase.profile,
-    auth: state.firebase.auth
+    auth: state.firebase.auth,
   };
 };
 

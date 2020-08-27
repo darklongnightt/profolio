@@ -14,7 +14,6 @@ class Analytics extends Component {
   getTodayViews = (views) => {
     const today = moment().format("YYYY-MM-DD");
     const todayViews = views.find(elems => elems.id === today);
-    console.log(todayViews)
     this.setState({
       todayViews: todayViews === undefined ? 0 : todayViews.count,
     });

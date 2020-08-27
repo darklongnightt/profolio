@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { updateSettings } from "../../store/actions/profileActions";
+import M from "materialize-css";
 
 class PublishSettings extends Component {
   state = {
     publishEmployments: true,
     publishEducations: true,
     publishProjects: true,
-    publishCustoms: true
+    publishCustoms: true,
   };
 
   constructor(props) {
@@ -17,91 +18,96 @@ class PublishSettings extends Component {
       publishEmployments: true && profile.publishEmployments,
       publishEducations: true && profile.publishEducations,
       publishProjects: true && profile.publishProjects,
-      publishCustoms: true && profile.publishCustoms
+      publishCustoms: true && profile.publishCustoms,
     };
   }
 
-  handleChange = e => {
+  handleChange = (e) => {
     this.setState({
-      [e.target.id]: e.target.checked
+      [e.target.id]: e.target.checked,
     });
   };
 
-  handleSubmit = e => {
-    this.props.updateSettings(this.state);
+  handleSubmit = (e) => {
+    const err = this.props.updateSettings(this.state);
+    if (!err) {
+      M.toast({ html: "Updated profile settings!" });
+    } else {
+      M.toast({ html: "Error while updating profile settings!" });
+    }
   };
 
   render() {
     return (
       <div className="card z-depth-0 modal-container">
-        <div className="card-content">
-          <h5 className="bold center">
-            Public Settings
-          </h5>
-          <br/>
+        <div className="card-content center">
+          <h5 className="bold">Profile Settings</h5>
+          <br />
 
-          <div className="switch">
-            <span className="blue-text brand-text bold publish-section">
-              Education Section
-            </span>
+          <div className="settings-container">
+            <div className="switch">
+              <span className="blue-text brand-text bold publish-section">
+                Show My Educations
+              </span>
 
-            <label>
-              <input
-                type="checkbox"
-                id="publishEducations"
-                onChange={this.handleChange}
-                checked={this.state.publishEducations}
-              />
-              <span className="lever"></span>
-            </label>
-          </div>
+              <label>
+                <input
+                  type="checkbox"
+                  id="publishEducations"
+                  onChange={this.handleChange}
+                  checked={this.state.publishEducations}
+                />
+                <span className="lever"></span>
+              </label>
+            </div>
 
-          <div className="switch">
-            <span className="blue-text brand-text bold publish-section">
-              Employment Section
-            </span>
+            <div className="switch">
+              <span className="blue-text brand-text bold publish-section">
+                Show My Employments
+              </span>
 
-            <label>
-              <input
-                type="checkbox"
-                id="publishEmployments"
-                onChange={this.handleChange}
-                checked={this.state.publishEmployments}
-              />
-              <span className="lever"></span>
-            </label>
-          </div>
+              <label>
+                <input
+                  type="checkbox"
+                  id="publishEmployments"
+                  onChange={this.handleChange}
+                  checked={this.state.publishEmployments}
+                />
+                <span className="lever"></span>
+              </label>
+            </div>
 
-          <div className="switch">
-            <span className="blue-text brand-text bold publish-section">
-              Project Section
-            </span>
+            <div className="switch">
+              <span className="blue-text brand-text bold publish-section">
+                Show My Projects
+              </span>
 
-            <label>
-              <input
-                type="checkbox"
-                id="publishProjects"
-                onChange={this.handleChange}
-                checked={this.state.publishProjects}
-              />
-              <span className="lever"></span>
-            </label>
-          </div>
+              <label>
+                <input
+                  type="checkbox"
+                  id="publishProjects"
+                  onChange={this.handleChange}
+                  checked={this.state.publishProjects}
+                />
+                <span className="lever"></span>
+              </label>
+            </div>
 
-          <div className="switch">
-            <span className="blue-text brand-text bold publish-section">
-              Custom Section
-            </span>
+            <div className="switch">
+              <span className="blue-text brand-text bold publish-section">
+                Show Custom Section
+              </span>
 
-            <label>
-              <input
-                type="checkbox"
-                id="publishCustoms"
-                onChange={this.handleChange}
-                checked={this.state.publishCustoms}
-              />
-              <span className="lever"></span>
-            </label>
+              <label>
+                <input
+                  type="checkbox"
+                  id="publishCustoms"
+                  onChange={this.handleChange}
+                  checked={this.state.publishCustoms}
+                />
+                <span className="lever"></span>
+              </label>
+            </div>
           </div>
         </div>
 
@@ -118,15 +124,15 @@ class PublishSettings extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    profile: state.firebase.profile
+    profile: state.firebase.profile,
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    updateSettings: settings => dispatch(updateSettings(settings))
+    updateSettings: (settings) => dispatch(updateSettings(settings)),
   };
 };
 
