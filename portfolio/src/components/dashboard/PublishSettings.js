@@ -20,7 +20,6 @@ class PublishSettings extends Component {
       publishProjects: true && profile.publishProjects,
       publishCustoms: true && profile.publishCustoms,
     };
-    M.AutoInit();
   }
 
   handleChange = (e) => {
@@ -41,9 +40,11 @@ class PublishSettings extends Component {
   render() {
     return (
       <div className="card z-depth-0 modal-container">
-        <div className="card-content">
-          <h5 className="bold center">Profile Settings</h5>
+        <div className="card-content center">
+          <h5 className="bold">Profile Settings</h5>
           <br />
+
+          <div className="settings-container">
             <div className="switch">
               <span className="blue-text brand-text bold publish-section">
                 Show My Educations
@@ -107,6 +108,7 @@ class PublishSettings extends Component {
                 <span className="lever"></span>
               </label>
             </div>
+          </div>
         </div>
 
         <br />

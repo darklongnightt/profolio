@@ -154,6 +154,10 @@ label.active {
   border-radius: 15px !important;
 }
 
+.summary-img {
+  margin-top: 15px;
+}
+
 .hover-container {
   position: relative;
 }
@@ -194,6 +198,11 @@ label.active {
 .publish-section {
   display: inline-block;
   width: 200px;
+}
+
+.settings-container {
+  padding: 0 68px;
+  text-align: left;
 }
 
 .switch {
@@ -294,4 +303,9 @@ div.display li {
 
 .content-container {
   margin-top: 30px;
+}
+
+.input-btn {
+  margin-top: 10px;
+  padding: 0 !important;
 }
